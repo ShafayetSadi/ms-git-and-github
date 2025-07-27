@@ -15,12 +15,13 @@ export default function LessonSlug({ post }) {
       section: post.section,
       title: post.title,
       icon: post.icon,
+      iconFamily: post.iconFamily,
     });
     let elementsToClean = createCopyCodeFunctionality();
     return () => {
       setHeader({});
       elementsToClean = [];
-    }
+    };
   }, []);
 
   const title = post.title

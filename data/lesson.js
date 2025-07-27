@@ -74,6 +74,7 @@ export async function getLessons() {
     } = slugify(dirFilename);
 
     let icon = DEFAULT_ICON;
+    let iconFamily = "fas"; // default to solid icons
 
     const meta = await getMeta(dirFilename);
     if (meta.title) {
@@ -81,6 +82,9 @@ export async function getLessons() {
     }
     if (meta.icon) {
       icon = meta.icon;
+    }
+    if (meta.iconFamily) {
+      iconFamily = meta.iconFamily;
     }
 
     const lessons = [];
@@ -114,6 +118,7 @@ export async function getLessons() {
 
     sections.push({
       icon,
+      iconFamily,
       title: sectionTitle,
       slug: sectionSlug,
       lessons,
@@ -146,6 +151,7 @@ export async function getLesson(targetDir, targetFile) {
 
           const section = getTitle(targetDir, meta.title);
           const icon = meta.icon ? meta.icon : DEFAULT_ICON;
+          const iconFamily = meta.iconFamily ? meta.iconFamily : "fas";
 
           let nextSlug;
           let prevSlug;
@@ -201,6 +207,7 @@ export async function getLesson(targetDir, targetFile) {
             title,
             section,
             icon,
+            iconFamily,
             filePath,
             nextSlug: nextSlug ? path.join(base, "lessons", nextSlug) : null,
             prevSlug: prevSlug ? path.join(base, "lessons", prevSlug) : null,

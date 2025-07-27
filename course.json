@@ -1,19 +1,30 @@
 {
   "author": {
-    "name": "Brian Holt",
-    "company": "Databricks"
+    "name": "Shafayet Sadi",
+    "company": "ECE, RUET"
   },
-  "title": "Next.js Course Starter Kit",
-  "subtitle": "for Frontend Masters",
-  "frontendMastersLink": "https://frontendmasters.com/courses/complete-react-v9/",
+  "title": "Git and GitHub: A Hands-on Guide",
+  "subtitle": "Practical Version Control for Your Missing Semester",
+  "msLink": "https://missing.csail.mit.edu/",
   "social": {
-    "linkedin": "btholt",
-    "github": "btholt",
-    "twitter": "holtbt",
-    "bluesky": "brianholt.me"
+    "linkedin": "shafayetsadi",
+    "github": "shafayetsadi",
+    "twitter": "shafayet_sadi",
+    "bluesky": ""
   },
-  "description": "A starter kit for making really amazing courses, optimized for Frontend Masters",
-  "keywords": ["your", "Google", "keywords", "here"],
-  "productionBaseUrl": "/next-course-starter",
+  "description": "A hands-on, beginner-friendly course on Git and GitHub tailored for 1st and 2nd year students of RUET. Inspired by MIT's Missing Semester, this series covers version control fundamentals, GitHub workflows, Markdown, branching, and open-source collaboration — all through real projects like building a Tic-Tac-Toe game.",
+  "keywords": [
+     "git",
+    "github",
+    "version-control",
+    "markdown",
+    "open-source",
+    "missing-semester",
+    "cs",
+    "ruet",
+    "beginner",
+    "workshop"
+  ],
+  "productionBaseUrl": "/ms-git-and-github",
   "csvPath": "./out/lessons.csv"
 }

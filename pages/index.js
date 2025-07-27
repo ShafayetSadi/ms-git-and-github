@@ -50,9 +50,9 @@ export default function Lessons({ sections }) {
             />
           </div>
         </div>
-        {courseInfo.frontendMastersLink ? (
-          <a href={courseInfo.frontendMastersLink} className="cta-btn">
-            Watch on Frontend Masters
+        {courseInfo.msLink ? (
+          <a href={courseInfo.msLink} className="cta-btn">
+            Missing Semesters
           </a>
         ) : null}
         <div className="main-card">
@@ -63,7 +63,11 @@ export default function Lessons({ sections }) {
                 <li key={section.slug}>
                   <div className="lesson-details">
                     <div className="lesson-preface">
-                      <i className={`fas fa-${section.icon}`}></i>
+                      <i
+                        className={`${section.iconFamily || "fas"} fa-${
+                          section.icon
+                        }`}
+                      ></i>
                     </div>
                     <div className="lesson-text">
                       <h2 className="lesson-section-title">{section.title}</h2>
