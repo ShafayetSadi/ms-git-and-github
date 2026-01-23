@@ -20,7 +20,9 @@ export default function Header(props) {
                 {section ? (
                     <h2>
                         {section} &nbsp;{" "}
-                        <i className={`${iconFamily || "fas"} fa-${icon}`} />{" "}
+                        <i
+                            className={`${iconFamily || "fa-solid"} fa-${icon}`}
+                        />{" "}
                         &nbsp; {title} &nbsp;
                     </h2>
                 ) : null}

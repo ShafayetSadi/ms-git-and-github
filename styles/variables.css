@@ -1,73 +1,84 @@
 :root {
-  --primary: #dfa067;
-  --secondary: #93aca7;
-  --highlight: #224159;
+    --primary: #dfa067;
+    --secondary: #93aca7;
+    --highlight: #224159;
 
-  --lesson-text: rgb(8, 8, 8);
+    --lesson-text: rgb(8, 8, 8);
 
-  --text-header: var(--primary);
-  --text-main-headers: var(--highlight);
-  --text-links: #007bff;
-  --text-footer: #333;
+    --text-header: var(--primary);
+    --text-main-headers: var(--highlight);
+    --text-links: #007bff;
+    --text-footer: #333;
 
-  --bg-main: white;
-  --bg-dots: var(--highlight);
-  --bg-lesson: white;
+    --bg-main: white;
+    --bg-dots: var(--highlight);
+    --bg-lesson: white;
 
-  --nav-buttons: var(--highlight);
-  --nav-buttons-text: white;
-  --nav-buttons-text-hover: white;
+    --nav-buttons: var(--highlight);
+    --nav-buttons-text: white;
+    --nav-buttons-text-hover: white;
 
-  --corner-active: var(--highlight);
-  --corner-inactive: #f4f4f4;
-  --icons: var(--highlight);
-  --footer-icons: var(--highlight);
+    --corner-active: var(--highlight);
+    --corner-inactive: #f4f4f4;
+    --icons: var(--highlight);
+    --footer-icons: var(--highlight);
 
-  --emphasized-bg: #dce8ff;
-  --emphasized-border: #aab6d2;
+    --emphasized-bg: #dce8ff;
+    --emphasized-border: #aab6d2;
+    --code-bg: #eef4ff;
+    --code-text: #0b1a2b;
+    --code-border: #c7d6ee;
+    --code-copy-bg: #e0e9f8;
+    --code-copy-text: #0b1a2b;
+    --code-copy-border: #9fb4d6;
 }
 
- [data-theme="dark"] {
-  --primary: #224159;
-  --secondary: #93aca7;
-  --highlight: #dfa067;
+[data-theme="dark"] {
+    --primary: #224159;
+    --secondary: #93aca7;
+    --highlight: #dfa067;
 
-  --text-header: var(--primary);
-  --text-main-headers: var(--highlight);
-  --text-links: #ff6f00;
-  --text-footer: var(--highlight);
+    --text-header: var(--primary);
+    --text-main-headers: var(--highlight);
+    --text-links: #ff6f00;
+    --text-footer: var(--highlight);
 
-  --lesson-text: rgb(218, 218, 218);
+    --lesson-text: rgb(218, 218, 218);
 
-  --bg-main: #1f1f1f;
-  --bg-dots: var(--highlight);
-  --bg-lesson: #323232;
-  --nav-buttons: var(--highlight);
-  --nav-buttons-text: var(--primary);
-  --nav-buttons-text-hover: var(--highlight);
+    --bg-main: #1f1f1f;
+    --bg-dots: var(--highlight);
+    --bg-lesson: #323232;
+    --nav-buttons: var(--highlight);
+    --nav-buttons-text: var(--primary);
+    --nav-buttons-text-hover: var(--highlight);
 
-  --corner-active: var(--highlight);
-  --corner-inactive: #2a2a2a;
-  --icons: var(--primary);
-  --footer-icons: var(--highlight);
+    --corner-active: var(--highlight);
+    --corner-inactive: #2a2a2a;
+    --icons: var(--primary);
+    --footer-icons: var(--highlight);
 
-  --emphasized-bg: #dce8ff;
-  --emphasized-border: #5a6c89;
-  }
+    --emphasized-bg: #233044;
+    --emphasized-border: #6f86a8;
+    --code-bg: #1b2432;
+    --code-text: #e6edf3;
+    --code-border: #3a4d67;
+    --code-copy-bg: #2a3b55;
+    --code-copy-text: #e6edf3;
+    --code-copy-border: #4f6788;
+}
 
-  .lesson-title {
-  color: var(--highlight);
-  }
+.lesson-title {
+    color: var(--highlight);
+}
 
-  .lesson-section-title {
+.lesson-section-title {
     color: var(--primary);
-  }
- 
- .terms {
-  color: var(--highlight);
- }
+}
 
- li {
-  color: var(--highlight);
- }
+.terms {
+    color: var(--highlight);
+}
 
+li {
+    color: var(--highlight);
+}

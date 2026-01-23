@@ -77,7 +77,7 @@ export default function Lessons({ sections }) {
                                     <div className="lesson-details">
                                         <div className="lesson-preface">
                                             <i
-                                                className={`${section.iconFamily || "fas"} fa-${
+                                                className={`${section.iconFamily || "fa-solid"} fa-${
                                                     section.icon
                                                 }`}
                                             ></i>

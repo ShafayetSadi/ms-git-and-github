@@ -26,13 +26,16 @@ export default function LessonSlug({ post }) {
             section: post.section,
             title: post.title,
             icon: post.icon,
+            iconFamily: post.iconFamily,
         });
-        let elementsToClean = createCopyCodeFunctionality();
         return () => {
             setHeader({});
-            elementsToClean = [];
         };
-    }, []);
+    }, [post.section, post.title, post.icon]);
+
+    useEffect(() => {
+        createCopyCodeFunctionality();
+    });
 
     const title = post.title
         ? `${post.title} – ${courseInfo.title}`

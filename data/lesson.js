@@ -6,7 +6,21 @@ import { Marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
 
-const DEFAULT_ICON = "info-circle";
+const DEFAULT_ICON = "circle-info";
+const BRAND_ICONS = new Set([
+    "git",
+    "git-alt",
+    "github",
+    "square-github",
+    "markdown",
+]);
+
+function resolveIconFamily(iconFamily, icon) {
+    if (iconFamily) {
+        return iconFamily;
+    }
+    return BRAND_ICONS.has(icon) ? "fa-brands" : "fa-solid";
+}
 const lessonsPath = path.join(process.cwd(), "lessons");
 
 const marked = new Marked(
@@ -76,7 +90,7 @@ export async function getLessons() {
         } = slugify(dirFilename);
 
         let icon = DEFAULT_ICON;
-        let iconFamily = "fas"; // default to solid icons
+        let iconFamily;
 
         const meta = await getMeta(dirFilename);
         if (meta.title) {
@@ -85,9 +99,7 @@ export async function getLessons() {
         if (meta.icon) {
             icon = meta.icon;
         }
-        if (meta.iconFamily) {
-            iconFamily = meta.iconFamily;
-        }
+        iconFamily = resolveIconFamily(meta.iconFamily, icon);
 
         const lessons = [];
         for (let lessonFilename of lessonsDir) {
@@ -161,9 +173,7 @@ export async function getLesson(targetDir, targetFile) {
 
                     const section = getTitle(targetDir, meta.title);
                     const icon = meta.icon ? meta.icon : DEFAULT_ICON;
-                    const iconFamily = meta.iconFamily
-                        ? meta.iconFamily
-                        : "fas";
+                    const iconFamily = resolveIconFamily(meta.iconFamily, icon);
 
                     let nextSlug;
                     let prevSlug;
