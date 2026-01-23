@@ -1,10 +1,43 @@
 ---
 title: "Basic Git Commands"
-description: ""
+description: "Learn the core Git commands to manage versions."
 keywords:
   - Git
-  - Version Control
+  - Commit
+  - Version
   - Shafayet Sadi
 ---
 
-TODO
+## Track Files
+
+```bash
+git add filename
+```
+
+## Commit Changes
+
+```bash
+git commit -m "Descriptive message"
+```
+
+## Check Status
+
+```bash
+git status
+```
+
+## Check History
+
+```bash
+git log
+```
+
+## Summary Table
+
+| Command      | Description         |
+| ------------ | ------------------- |
+| `git init`   | Initialize repo     |
+| `git add`    | Stage file          |
+| `git commit` | Save snapshot       |
+| `git status` | Show current state  |
+| `git log`    | Show change history |
