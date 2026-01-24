@@ -86,21 +86,33 @@ export default function Lessons({ sections }) {
                                             <h2 className="lesson-section-title">
                                                 {section.title}
                                             </h2>
-                                            <ol>
-                                                {section.lessons.map(
-                                                    (lesson) => (
-                                                        <li key={lesson.slug}>
-                                                            <Link
-                                                                href={
-                                                                    lesson.fullSlug
+                                            {section.lessons.length > 0 ? (
+                                                <ol>
+                                                    {section.lessons.map(
+                                                        (lesson) => (
+                                                            <li
+                                                                key={
+                                                                    lesson.slug
                                                                 }
                                                             >
-                                                                {lesson.title}
-                                                            </Link>
-                                                        </li>
-                                                    ),
-                                                )}
-                                            </ol>
+                                                                <Link
+                                                                    href={
+                                                                        lesson.fullSlug
+                                                                    }
+                                                                >
+                                                                    {
+                                                                        lesson.title
+                                                                    }
+                                                                </Link>
+                                                            </li>
+                                                        ),
+                                                    )}
+                                                </ol>
+                                            ) : (
+                                                <div className="coming-soon">
+                                                    Coming soon
+                                                </div>
+                                            )}
                                         </div>
                                         <Corner />
                                     </div>

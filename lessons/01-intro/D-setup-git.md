@@ -1,84 +1,168 @@
 ---
 title: "Setting Up Git"
-description: "Install Git and configure your user identity."
+description: "Install Git and configure your identity so your work is properly tracked."
 keywords:
   - Git
   - Setup
+  - Missing Semester
   - Shafayet Sadi
 ---
 
 ## Installing Git
 
-### Linux
+Git needs to be installed on your system before we can use it.
+
+### Linux (Ubuntu / Debian-based)
 
 ```bash
+sudo apt update
 sudo apt install git
-```
+````
+
+> If you are using another Linux distribution, use your package manager
+> (e.g., `dnf`, `pacman`, `zypper`).
+
 
 ### Windows
 
-Download and install from: [https://git-scm.com/](https://git-scm.com/)
+Download Git from the official website:
 
-## Verify Installation
+👉 [https://git-scm.com/](https://git-scm.com/)
 
-To verify that Git is installed correctly, run in the terminal:
+During installation:
+
+* Use the **default options**
+* Choose **Git Bash** when prompted
+
+📌 **Recommendation for Windows users**
+Use **Git Bash** — it gives you a Unix-like terminal experience similar to Linux and macOS, which we will use throughout this workshop.
+
+---
+
+## Verify the Installation
+
+After installation, open a terminal (or Git Bash on Windows) and run:
 
 ```bash
-➜  ~ git --version
+git --version
+```
+
+Example output:
+
+```bash
 git version 2.43.0
 ```
 
-If you see a version number like `git version 2.43.0`, Git is installed correctly.
+If you see a version number, Git is installed correctly.
 
-- If you see an error, make sure Git is installed and added to your system's PATH.
-- If you are using Windows, you may need to restart your terminal or command prompt after installation.
+### If something goes wrong
 
-For windows users, I recommend using `Git Bash`. It will give your a unix like terminal experiance in windows.
+* Restart your terminal
+* Make sure Git is added to your system PATH
+* On Windows, ensure you are using **Git Bash**
 
-## Git is a CLI tool
+---
 
-<br><br><br><br><br>
+## Git Is a Command-Line Tool
 
-## Configure Git
+Git is primarily used from the **command line**.
 
-We have to tell Git who we are so it can link our commits to us.
+This may feel uncomfortable at first — that’s normal.
+You only need a **small set of commands**, and we will practice them repeatedly.
+
+You do **not** need to memorize everything.
+
+---
+
+## Configure Git (Very Important)
+
+Before using Git, we must tell it **who you are**.
+
+Git attaches your name and email to every commit you make.
+
+Run the following commands:
 
 ```bash
-git config --global user.name "Shafayet Sadi"
-git config --global user.email "shafayet.sadi@gmail.com"
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
 ```
 
-Replace `Shafayet Sadi` and `shafayet.sadi@gmail.com` with your own name and email.
+Replace:
 
-### Check Config
+* `"Your Name"` with your real name
+* `"your.email@example.com"` with your email
 
-You can check your configuration by running:
+📌 **Important**
+
+* This does **not** create a GitHub account
+* This only identifies your commits locally
+
+---
+
+## Check Your Configuration
+
+To verify your settings, run:
 
 ```bash
 git config --list
 ```
 
-### Local vs Global Config
+You should see something like:
 
-You can set configurations globally (for all repositories) or locally (for a specific repository).
-
-- **Global**: Applies to all repositories on your system.
-- **Local**: Applies only to the current repository.
-  To set a local configuration, navigate to your repository and run the same commands without the `--global` flag:
-
-```bash
-git config user.name "Your Name"
-git config user.email "your.email@example.com"
+```
+user.name=Your Name
+user.email=your.email@example.com
 ```
 
-Now if you run `git config --list`, you will see both global and local configurations.
+That means Git knows who you are.
 
-<br><br><br><br><br>
+---
 
-## Why Configure Git?
+## Global vs Local Configuration (Concept Only)
 
-Configuring Git with your name and email helps:
+Git configurations can be set at different levels.
 
-- Identify who made changes in a project.
-- Keep a clear history of contributions.
-- Ensure your commits are linked to your identity.
+### Global configuration
+
+* Applies to **all repositories** on your computer
+* This is what we just set
+* Most students only need this
+
+### Local configuration
+
+* Applies to **one specific repository**
+* Overrides global settings for that project
+
+Example (do not run yet unless instructed):
+
+```bash
+git config user.name "Another Name"
+git config user.email "another.email@example.com"
+```
+
+📌 For now, **global configuration is enough**.
+
+---
+
+## Why Configuring Git Matters
+
+Configuring Git helps you:
+
+* Identify who made each change
+* Understand project history clearly
+* Receive proper credit for your work
+* Collaborate without confusion
+
+Every commit tells a story — your name is part of that story.
+
+---
+
+## What’s Next?
+
+Now that Git is installed and configured, we are ready to:
+
+* Create our first Git repository
+* Track changes
+* Save our work safely
+
+Let’s move on to creating your first repository 🚀

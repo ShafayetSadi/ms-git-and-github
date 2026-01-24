@@ -375,6 +375,20 @@ blockquote > *:first-child {
     min-height: 200px;
 }
 
+.coming-soon {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--highlight);
+    border: 1px solid var(--highlight);
+    color: var(--bg-main);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
 .sections-name {
     margin: 0;
     padding: 0;
@@ -530,7 +544,11 @@ ol.sections-name .lesson-details {
     padding: 0px 5px;
 }
 
-code,
+code {
+    padding: 0.15em 0.35em;
+    font-size: 0.9em;
+}
+
 pre code {
     padding: 0.5rem;
 }
@@ -546,6 +564,7 @@ pre code.hljs {
 pre code,
 pre code.hljs {
     display: block;
+    position: relative;
 }
 
 pre {
@@ -555,69 +574,100 @@ pre {
 .copy-button {
     position: absolute;
     top: 8px;
-    right: 8px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
     background: var(--code-copy-bg);
     color: var(--code-copy-text);
     border: 1px solid var(--code-copy-border);
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    padding: 6px 10px;
+    border-radius: 6px;
+    line-height: 0;
     cursor: pointer;
-    opacity: 0.75;
+    opacity: 0;
     transition:
-        opacity 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background-color 0.2s ease;
+        opacity 0.15s ease,
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
 }
 
 .copy-button:hover,
-.copy-button:focus {
+.copy-button:focus-visible {
+    background: var(--code-copy-bg-hover);
+    border-color: var(--code-copy-border);
     opacity: 1;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.copy-button:active {
+    background: var(--code-copy-bg-active);
+}
+
+.copy-button::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 6px);
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #24292f;
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(4px);
+    pointer-events: none;
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
 }
 
 .copy-button::after {
     content: "";
     position: absolute;
-    right: 100%;
-    margin-right: -4px;
-    top: 60%;
-    transform: translateY(-50%);
-    border-style: solid;
-    border-width: 2px 2px 5px 8px;
-    border-color: transparent transparent transparent #444;
+    right: 8px;
+    bottom: calc(100% + 1px);
+    border: 5px solid transparent;
+    border-top-color: #24292f;
     opacity: 0;
-    transition: opacity 0.3s;
+    transform: translateY(4px);
+    pointer-events: none;
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
 }
 
-.copy-button::before {
-    content: "Copied";
-    position: absolute;
-    top: 60%;
-    transform: translateY(-50%);
-    right: 100%;
-    margin-right: 5px;
-    padding: 2px 7px;
-    border-radius: 5px;
-    background: #444;
-    color: #fff;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.copy-button {
-    margin-right: 0.3em;
-    margin-top: 0.3em;
-}
-
+.copy-button:hover::before,
+.copy-button:hover::after,
+.copy-button:focus-visible::before,
+.copy-button:focus-visible::after,
 .copy-button.clicked::before,
 .copy-button.clicked::after {
     opacity: 1;
+    transform: translateY(0);
+}
+
+.copy-button__icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.copy-button__icon--check {
+    display: none;
+}
+
+.copy-button.clicked .copy-button__icon--copy {
+    display: none;
+}
+
+.copy-button.clicked .copy-button__icon--check {
+    display: inline-block;
 }
 
 pre:hover .copy-button,

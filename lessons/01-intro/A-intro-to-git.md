@@ -1,73 +1,123 @@
 ---
 title: "Introduction to Git"
-description: "Understand what Git is and why it's essential for developers."
+description: "Understand what Git is, why it exists, and how it helps developers work safely and collaboratively."
 keywords:
   - Git
   - Version Control
+  - Missing Semesters
   - Shafayet Sadi
 ---
 
-## What is Missing Semesters?
+## What is the Missing Semesters?
 
-Missing Semesters is a workshop series that teaches you practical tools rarely taught in class but essential for productivity and collaboration.
+**Missing Semesters** is a workshop series focused on teaching practical tools and workflows that are rarely taught in traditional classes, but are essential for real-world software development, productivity, and collaboration.
+
+These are the skills you usually learn **late**, **by accident**, or **the hard way**.
+
+This workshop is here to change that.
 
 <br><br><br><br><br>
 
 ## Who am I?
 
-As-salamu alaykum! 
+As-salamu alaykum 👋  
 
-I am Shafayetul Huda Sadi.
+I am **Shafayetul Huda Sadi**, and I’ll be guiding you through this Git & GitHub workshop as part of the **Missing Semester** initiative.
+
+You can find me here:
 
 - [GitHub][github]
 - [LinkedIn][linkedin]
 - [Twitter][twitter]
 - [Facebook][facebook]
 
-And welcome to the Git and GitHub Workshop for your [Missing Semester][ms].
+Missing Semester website:  
+👉 [ms.ece.ruet.ac.bd][ms]
 
-[github]: https://github.com/shafayetsadi
-[linkedin]: https://linkedin.com/in/shafayetsadi
-[twitter]: https://twitter.com/shafayet_sadi
-[facebook]: https://www.facebook.com/shafayet.sadi.7
-[ms]: https://www.ms.ece.ruet.ac.bd
+[github]: https://github.com/shafayetsadi  
+[linkedin]: https://linkedin.com/in/shafayetsadi  
+[twitter]: https://twitter.com/shafayet_sadi  
+[facebook]: https://www.facebook.com/shafayet.sadi.7  
+[ms]: https://www.ms.ece.ruet.ac.bd  
 
 <br><br><br><br><br>
 
-## Lets Imagine Some Scenarios
+## Let’s Imagine Some Real Scenarios
 
-- You are working on a project with your friend. You are good in frontend UI and your friend is good in backend API. How do you share your codes? Send them a .zip file in an email? Share a drive?
-- You are working in a big project. You have almost completed your project with thousands of lines of code. And suddenly, you get __Blue Screen of Death__ in your computer and your OS is corrupted.
-- You are an aspiring Software Engineer. You want to showcase what you have build and what you are building in your university life. How do you do that?
+Think about these situations:
 
-Git solves these problems.
+- You want to **showcase what you have built** to seniors, teachers, or recruiters. How do you do that?
+- You are working on a project with a friend:
+  - You handle the frontend UI
+  - Your friend works on the backend API  
+  How do you share code?  
+  Email a `.zip` file? Google Drive? Pendrive?
+- You have spent weeks working on a project with thousands of lines of code, and suddenly:
+  - Your OS crashes
+  - Your laptop stops booting
+  - Everything is gone
+
+These are **not rare problems**.  
+Every developer faces them.
+
+👉 **Git exists to solve exactly these problems.**
 
 <br><br><br><br><br>
 
 ## What is Git?
 
-![Git](https://imgs.xkcd.com/comics/git.png)
+![Git XKCD](https://imgs.xkcd.com/comics/git.png)
 
-> Git is a [free and open source](https://git-scm.com/about/free-and-open-source) **distributed version control system** designed to handle everything from small to very large projects with speed and efficiency.
+> **Git** is a **free and open-source, distributed version control system** designed to track changes in source code and help developers collaborate safely and efficiently.
 
-You can:
+In simple terms, Git allows you to:
 
-- Track every changes you have made
-- See what changes were made by others
-- Restore a previous version
-- Collaborate without messing up each other’s work
+- Track every change you make to your code
+- Go back to any previous version
+- See who changed what and when
+- Work with others without overwriting each other’s work
+- Feel safe while experimenting and making mistakes
+
+Git is not magic.  
+It is a **safety system for your work**.
 
 <br><br><br><br><br>
 
-## Why Git?
+## Why Should You Use Git?
 
-- You can rollback broken changes.
-- You can experiment in branches.
-- You can collaborate with your team.
+Git helps you because:
 
-## Quick Note
+- You can **rollback** broken changes instead of panicking
+- You can **experiment freely** without fear of losing progress
+- You can **collaborate** without copying folders like  
+  `project_final_v3_REAL_last.zip`
 
-Git and GitHub are not the same.
+Git turns chaos into history.
 
-- Git is a VCS tool/software.
-- GitHub is a hosting service (now its more than that) that uses git and gives a user interface.
+<br><br><br><br><br>
+
+## Quick but Important Note
+
+**Git and GitHub are not the same thing.**
+
+- **Git** is a tool (software) that runs on your computer
+- **GitHub** is a platform that hosts Git repositories online and adds collaboration features
+
+You can use Git **without** GitHub.  
+GitHub simply makes Git more powerful and easier to share.
+
+We’ll understand this difference clearly in the next lessons.
+
+<br><br><br><br><br>
+
+## What You’ll Learn in This Workshop
+
+By the end of this workshop series, you will be able to:
+
+- Save your projects safely using Git
+- Recover from mistakes without fear
+- Move your projects between computers
+- Collaborate using GitHub
+- Understand how real developers work on real projects
+
+No prior experience required — just curiosity.

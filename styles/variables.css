@@ -28,9 +28,11 @@
     --code-bg: #eef4ff;
     --code-text: #0b1a2b;
     --code-border: #c7d6ee;
-    --code-copy-bg: #e0e9f8;
-    --code-copy-text: #0b1a2b;
-    --code-copy-border: #9fb4d6;
+    --code-copy-bg: #f6f8fa;
+    --code-copy-bg-hover: #f3f4f6;
+    --code-copy-bg-active: #eaeef2;
+    --code-copy-text: #24292f;
+    --code-copy-border: #d0d7de;
 }
 
 [data-theme="dark"] {
@@ -62,9 +64,11 @@
     --code-bg: #1b2432;
     --code-text: #e6edf3;
     --code-border: #3a4d67;
-    --code-copy-bg: #2a3b55;
-    --code-copy-text: #e6edf3;
-    --code-copy-border: #4f6788;
+    --code-copy-bg: #21262d;
+    --code-copy-bg-hover: #30363d;
+    --code-copy-bg-active: #2d333b;
+    --code-copy-text: #c9d1d9;
+    --code-copy-border: #30363d;
 }
 
 .lesson-title {

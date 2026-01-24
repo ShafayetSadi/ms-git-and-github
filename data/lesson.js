@@ -5,6 +5,7 @@ import { titleCase } from "title-case";
 import { Marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
+import getCourseConfig from "./course";
 
 const DEFAULT_ICON = "circle-info";
 const BRAND_ICONS = new Set([
@@ -68,7 +69,20 @@ function slugify(inputPath) {
     };
 }
 
+function isLessonVisible(data, courseConfig) {
+    if (data.hidden === true) {
+        return false;
+    }
+    const showIncomplete = courseConfig.showIncomplete !== false;
+    const isComplete = data.complete !== false;
+    if (!showIncomplete && !isComplete) {
+        return false;
+    }
+    return true;
+}
+
 export async function getLessons() {
+    const courseConfig = getCourseConfig();
     const dir = await fs.readdir(lessonsPath);
     const sections = [];
 
@@ -115,6 +129,9 @@ export async function getLessons() {
 
             const file = await fs.readFile(filePath);
             const { data } = matter(file.toString());
+            if (!isLessonVisible(data, courseConfig)) {
+                continue;
+            }
             let slug = lessonFilename.replace(/\.md$/, "");
 
             const slugParts = slug.split("-");
@@ -131,6 +148,7 @@ export async function getLessons() {
                 order: `${sectionOrder}${lessonOrder.toUpperCase()}`,
                 path: filePath,
                 description: data.description ? data.description : "",
+                complete: data.complete !== false,
             });
         }
 
@@ -147,7 +165,35 @@ export async function getLessons() {
     return sections;
 }
 
+export async function getAllLessonSlugs() {
+    const dir = await fs.readdir(lessonsPath);
+    const slugs = [];
+
+    for (let dirFilename of dir) {
+        const dirStats = await fs.lstat(path.join(lessonsPath, dirFilename));
+        if (!dirStats.isDirectory()) {
+            continue;
+        }
+
+        const lessonsDir = (
+            await fs.readdir(path.join(lessonsPath, dirFilename))
+        ).filter((filename) => filename.endsWith(".md"));
+
+        const { slug: sectionSlug } = slugify(dirFilename);
+
+        for (let lessonFilename of lessonsDir) {
+            const { slug: lessonSlug } = slugify(
+                lessonFilename.replace(/\.md$/, ""),
+            );
+            slugs.push(`/lessons/${sectionSlug}/${lessonSlug}`);
+        }
+    }
+
+    return slugs;
+}
+
 export async function getLesson(targetDir, targetFile) {
+    const courseConfig = getCourseConfig();
     const dir = await fs.readdir(lessonsPath);
 
     for (let i = 0; i < dir.length; i++) {
@@ -167,6 +213,25 @@ export async function getLesson(targetDir, targetFile) {
                     const filePath = path.join(lessonsPath, dirPath, slugPath);
                     const file = await fs.readFile(filePath);
                     const { data, content } = matter(file.toString());
+                    if (!isLessonVisible(data, courseConfig)) {
+                        const meta = await getMeta(dirPath);
+                        const section = getTitle(targetDir, meta.title);
+                        const title = getTitle(targetFile, data.title);
+                        const icon = meta.icon ? meta.icon : DEFAULT_ICON;
+                        const iconFamily = resolveIconFamily(
+                            meta.iconFamily,
+                            icon,
+                        );
+                        return {
+                            unavailable: true,
+                            attributes: data,
+                            slug: targetFile,
+                            title,
+                            section,
+                            icon,
+                            iconFamily,
+                        };
+                    }
                     const html = marked.parse(content);
                     const title = getTitle(targetFile, data.title);
                     const meta = await getMeta(dirPath);
@@ -258,5 +323,5 @@ export async function getLesson(targetDir, targetFile) {
         }
     }
 
-    return false;
+    return null;
 }
