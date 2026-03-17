@@ -17,11 +17,20 @@ Git needs to be installed on your system before we can use it.
 ```bash
 sudo apt update
 sudo apt install git
-````
+```
 
 > If you are using another Linux distribution, use your package manager
 > (e.g., `dnf`, `pacman`, `zypper`).
 
+### macOS
+
+If you have Homebrew:
+
+```bash
+brew install git
+```
+
+Or install Apple's command line tools when prompted the first time you run `git`.
 
 ### Windows
 
@@ -37,7 +46,7 @@ During installation:
 📌 **Recommendation for Windows users**
 Use **Git Bash** — it gives you a Unix-like terminal experience similar to Linux and macOS, which we will use throughout this workshop.
 
----
+<br><br><br><br><br>
 
 ## Verify the Installation
 
@@ -61,7 +70,7 @@ If you see a version number, Git is installed correctly.
 * Make sure Git is added to your system PATH
 * On Windows, ensure you are using **Git Bash**
 
----
+<br><br><br><br><br>
 
 ## Git Is a Command-Line Tool
 
@@ -72,7 +81,7 @@ You only need a **small set of commands**, and we will practice them repeatedly.
 
 You do **not** need to memorize everything.
 
----
+<br><br><br><br><br>
 
 ## Configure Git (Very Important)
 
@@ -97,7 +106,15 @@ Replace:
 * This does **not** create a GitHub account
 * This only identifies your commits locally
 
----
+### Set the default branch name to `main` (recommended)
+
+This avoids confusion later when you push to GitHub:
+
+```bash
+git config --global init.defaultBranch main
+```
+
+<br><br><br><br><br>
 
 ## Check Your Configuration
 
@@ -116,7 +133,7 @@ user.email=your.email@example.com
 
 That means Git knows who you are.
 
----
+<br><br><br><br><br>
 
 ## Global vs Local Configuration (Concept Only)
 
@@ -142,7 +159,7 @@ git config user.email "another.email@example.com"
 
 📌 For now, **global configuration is enough**.
 
----
+<br><br><br><br><br>
 
 ## Why Configuring Git Matters
 
@@ -155,7 +172,7 @@ Configuring Git helps you:
 
 Every commit tells a story — your name is part of that story.
 
----
+<br><br><br><br><br>
 
 ## What’s Next?
 
@@ -165,4 +182,4 @@ Now that Git is installed and configured, we are ready to:
 * Track changes
 * Save our work safely
 
-Let’s move on to creating your first repository 🚀
+Let’s move on to creating your first repository.

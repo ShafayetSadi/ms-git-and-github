@@ -19,7 +19,7 @@ Once a folder becomes a Git repository:
 
 At the start, it’s just a normal folder — Git only adds **tracking**, not magic.
 
----
+<br><br><br><br><br>
 
 ## Creating Your First Repository
 
@@ -28,7 +28,7 @@ Let’s create a new project folder and turn it into a Git repository.
 ```bash
 mkdir git-n-github
 cd git-n-github
-````
+```
 
 Now initialize Git:
 
@@ -59,14 +59,20 @@ This folder stores:
 📌 **Important**
 If you delete the `.git` folder, your project is no longer a Git repository.
 
----
+<br><br><br><br><br>
 
 ## Adding Files to the Repository
 
-Create a file:
+Create a file (if `touch` does not work on your system, just create `main.py` using your editor):
 
 ```bash
 touch main.py
+```
+
+Now open `main.py` and add something small, for example:
+
+```python
+print("Hello, Git!")
 ```
 
 Check Git’s status:
@@ -80,7 +86,7 @@ Git will tell you:
 * `main.py` is **untracked**
 * Git sees it, but is not tracking it yet
 
----
+<br><br><br><br><br>
 
 ### Stage the File
 
@@ -90,7 +96,13 @@ git add main.py
 
 Now `main.py` is **staged** — ready to be saved.
 
----
+Preview what you are about to commit:
+
+```bash
+git diff --staged
+```
+
+<br><br><br><br><br>
 
 ### Make Your First Commit
 
@@ -103,7 +115,7 @@ You just created your **first version** of the project.
 
 This commit is now a permanent snapshot in history.
 
----
+<br><br><br><br><br>
 
 ## How Git Thinks About Your Project
 
@@ -113,7 +125,7 @@ To understand Git, you need to understand **three places**.
 Working Directory → Staging Area → Repository
 ```
 
----
+<br><br><br><br><br>
 
 ### 1️⃣ Working Directory
 
@@ -124,7 +136,7 @@ This is your actual project folder:
 
 Any change you make starts here.
 
----
+<br><br><br><br><br>
 
 ### 2️⃣ Staging Area
 
@@ -138,7 +150,7 @@ You move changes here using:
 git add
 ```
 
----
+<br><br><br><br><br>
 
 ### 3️⃣ Repository
 
@@ -155,7 +167,7 @@ git commit
 
 Git takes everything from the staging area and stores it permanently.
 
----
+<br><br><br><br><br>
 
 ### Visual Summary
 
@@ -181,7 +193,7 @@ Git takes everything from the staging area and stores it permanently.
 
 📌 This mental model will explain **almost every Git command** you’ll learn.
 
----
+<br><br><br><br><br>
 
 ## Key Terms (Keep These in Mind)
 
@@ -205,7 +217,7 @@ Git takes everything from the staging area and stores it permanently.
 
 You don’t need to memorize these — you’ll use them repeatedly.
 
----
+<br><br><br><br><br>
 
 ## What’s Next?
 

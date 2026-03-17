@@ -1,5 +1,6 @@
 {
     "title": "Beyond Basics of Git",
     "iconFamily": "fa-brands",
-    "icon": "git-alt"
+    "icon": "git-alt",
+    "completed": false
 }

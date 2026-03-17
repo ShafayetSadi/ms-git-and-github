@@ -21,7 +21,7 @@ You can think of GitHub as:
 
 📌 GitHub does **not replace Git** — it works *with* Git.
 
----
+<br><br><br><br><br>
 
 ## Git vs GitHub (Very Important Difference)
 
@@ -45,7 +45,7 @@ This confusion is extremely common, so let’s make it clear.
 You can use Git **without** GitHub,  
 but GitHub becomes powerful **because of Git**.
 
----
+<br><br><br><br><br>
 
 ## Why Do We Use GitHub?
 
@@ -68,7 +68,7 @@ GitHub solves several real problems:
 
 For many developers, GitHub is their **online resume**.
 
----
+<br><br><br><br><br>
 
 ## GitHub for Students
 
@@ -83,11 +83,20 @@ You also get access to the **GitHub Student Developer Pack**, which provides:
 - Cloud credits
 - Developer software
 
-👉 https://education.github.com/pack
+👉 [education.github.com/pack](https://education.github.com/pack)
 
 You don’t need to use everything — just knowing it exists is enough for now.
 
----
+<br><br><br><br><br>
+
+## Two Words You Must Know
+
+- **Remote**: a Git repository that lives somewhere else (for us: GitHub)
+- **Origin**: the default nickname Git gives to the main remote
+
+You will see these words in commands like `git push origin main`.
+
+<br><br><br><br><br>
 
 ## What We Will Do Next (Hands-On)
 

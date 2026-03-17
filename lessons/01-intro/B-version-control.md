@@ -23,7 +23,7 @@ Think of version control as:
 
 Once a change is recorded, it is **never lost** unless you explicitly delete the history.
 
----
+<br><br><br><br><br>
 
 ## Why Version Control Matters (Especially for Students)
 
@@ -48,7 +48,7 @@ It is **extremely useful for students**.
 
 That history itself is proof of learning.
 
----
+<br><br><br><br><br>
 
 ## Types of Version Control Systems
 
@@ -62,7 +62,7 @@ Not all version control systems work the same way.
 📌 Example: manually copying folders like  
 `project_v1`, `project_v2`, `final_project`
 
----
+<br><br><br><br><br>
 
 ### 2️⃣ Centralized Version Control System
 - One central server stores the project
@@ -77,7 +77,7 @@ Not all version control systems work the same way.
 
 📌 Example: SVN
 
----
+<br><br><br><br><br>
 
 ### 3️⃣ Distributed Version Control System (DVCS)
 - Everyone has a **full copy of the project and its history**
@@ -85,7 +85,7 @@ Not all version control systems work the same way.
 
 📌 Example: **Git**
 
----
+<br><br><br><br><br>
 
 ## Git Is a Distributed Version Control System
 
@@ -103,7 +103,7 @@ This makes Git:
 
 Git is designed to make **mistakes safe**.
 
----
+<br><br><br><br><br>
 
 ## Core Vocabulary (Remember These Three)
 
@@ -121,7 +121,7 @@ Just understand these three:
 
 If you understand these, Git will make sense.
 
----
+<br><br><br><br><br>
 
 ## What We Will Do Next (Hands-on)
 

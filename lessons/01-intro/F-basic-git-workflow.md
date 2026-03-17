@@ -14,14 +14,12 @@ keywords:
 Almost all Git usage follows this simple flow:
 
 ```
-
 Edit files → Stage changes → Commit snapshot
-
-````
+```
 
 The commands below support this workflow.
 
----
+<br><br><br><br><br>
 
 ## Track (Stage) Files
 
@@ -30,7 +28,7 @@ You must explicitly choose what to include in the next commit.
 
 ```bash
 git add filename
-````
+```
 
 Example:
 
@@ -40,7 +38,25 @@ git add main.py
 
 📌 This moves changes from the **working directory** to the **staging area**.
 
----
+<br><br><br><br><br>
+
+## See What Changed (`git diff`)
+
+Before you commit, quickly review what you are about to save.
+
+Unstaged changes (working directory):
+
+```bash
+git diff
+```
+
+Staged changes (what will be committed):
+
+```bash
+git diff --staged
+```
+
+<br><br><br><br><br>
 
 ## Commit Changes
 
@@ -61,7 +77,7 @@ Example:
 git commit -m "Add initial guessing game logic"
 ```
 
----
+<br><br><br><br><br>
 
 ## Check Repository Status
 
@@ -81,7 +97,23 @@ This shows:
 
 📌 `git status` is your **best friend** while learning Git.
 
----
+<br><br><br><br><br>
+
+## Undo Accidental Changes (`git restore`)
+
+If you edited something by mistake, you can discard the changes:
+
+```bash
+git restore main.py
+```
+
+If you staged something by mistake, unstage it:
+
+```bash
+git restore --staged main.py
+```
+
+<br><br><br><br><br>
 
 ## View Commit History
 
@@ -104,7 +136,7 @@ For a simpler view:
 git log --oneline
 ```
 
----
+<br><br><br><br><br>
 
 ## Typical Usage Pattern
 
@@ -118,7 +150,7 @@ git commit -m "Fix input validation bug"
 
 You will repeat this pattern many times.
 
----
+<br><br><br><br><br>
 
 ## Summary Table
 
@@ -130,7 +162,7 @@ You will repeat this pattern many times.
 | `git status` | Show current project state  |
 | `git log`    | View commit history         |
 
----
+<br><br><br><br><br>
 
 ## Important Reminder
 
@@ -141,7 +173,7 @@ Git does **not** automatically save your work.
 
 If something is not committed, Git cannot restore it later.
 
----
+<br><br><br><br><br>
 
 ## What’s Next?
 

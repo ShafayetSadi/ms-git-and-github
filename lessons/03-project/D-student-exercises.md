@@ -1,250 +1,107 @@
-Here’s a **homework-style rewrite**, more structured, slightly stricter, and framed like a real assignment.
-I’ve also **changed the project to Tic-Tac-Toe**, while keeping the Git learning goals identical.
-
 ---
-
-````markdown
----
-title: "Homework: Git Practice Project"
-description: "Apply Git concepts by building and evolving a small Tic-Tac-Toe CLI project."
+title: "Student Exercises"
+description: "Practice Git until it becomes muscle memory: small changes, clean commits, and safe recovery."
 keywords:
   - Git
-  - Homework
   - Practice
+  - Exercises
   - Commits
   - Shafayet Sadi
 ---
 
-## 📌 Homework Overview
+## Rules (Read First)
 
-This homework is designed to make Git **muscle memory**, not theory.
-
-You will:
-- Build a small **CLI Tic-Tac-Toe game**
-- Save progress using **clean, meaningful commits**
-- Practice **breaking and recovering code**
-- Learn to **read Git history like a timeline**
-
-⏱️ Estimated time: 60–90 minutes
-
----
-
-## Project Rules (Read First)
-
-- Use **one commit per task**
-- Do **not** combine multiple changes in one commit
+- One task = one commit
 - Run the program before every commit
-- Use **clear commit messages** (provided below)
+- Use a meaningful commit message (examples below)
 
----
+<br><br><br><br><br>
 
-## Project Setup
+## Exercise 1: Make the Game a Real Project
 
-Create a new project:
+In your guessing game repo:
 
-```bash
-mkdir cli-tic-tac-toe
-cd cli-tic-tac-toe
-mkdir src
-git init
-````
+1. Create a `README.md` with:
+   - project name
+   - how to run it
+2. Commit it
 
-Create the file:
+Suggested commit message:
 
 ```
-src/main.py
+Add README with run instructions
 ```
 
----
+<br><br><br><br><br>
 
-## 🧪 Exercise 1: Initial Working Version
+## Exercise 2: Break It and Recover It (No Panic)
 
-### Goal
+1. Intentionally break the program so it crashes
+2. Confirm it crashes by running it
+3. Restore the file back to the last committed version
 
-Create a minimal Tic-Tac-Toe board that prints correctly.
-
-### Requirements
-
-* 3×3 board
-* Printed using `X`, `O`, and empty cells
-* No game logic required yet
-
-Example output:
-
-```
-X | O | X
----------
-  | X | O
----------
-O |   |
-```
-
-### Commit Message
-
-```
-Initial version: print tic-tac-toe board
-```
-
-### Success Check
-
-```bash
-git log --oneline
-```
-
----
-
-## 🧨 Exercise 2: Break It and Recover It
-
-### Goal
-
-Practice recovery without panic.
-
-### Steps
-
-1. Delete or break an important line so the program crashes.
-2. Run it and confirm it fails.
-3. Restore the file back to the last commit.
-
-### Commands
+Commands:
 
 ```bash
 git status
 git restore src/main.py
 ```
 
-📌 **Do not commit the broken version.**
+Do not commit the broken version.
 
----
+<br><br><br><br><br>
 
-## 🐛 Exercise 3: One Bug Fix = One Commit
+## Exercise 3: One Bug Fix = One Commit
 
-### Goal
+Task:
 
-Learn focused bug-fix commits.
+- Make the program crash on invalid input (example: user types `abc`)
+- Fix it with input validation
 
-### Task
-
-* Add player input (row & column)
-* Make it crash on invalid input (e.g. letters)
-* Fix the crash using input validation
-
-### Commit Message
+Suggested commit message:
 
 ```
-Fix crash on invalid player input
+Fix crash on invalid input
 ```
 
----
+<br><br><br><br><br>
 
-## ✨ Exercise 4: Add a Feature (Turns)
+## Exercise 4: Add One Feature = One Commit
 
-### Goal
+Pick ONE feature:
 
-Add real game behavior.
+- limited attempts (example: 3 tries)
+- score tracking (wins count)
+- change range (example: 1 to 100) with hints (too high / too low)
 
-### Requirements
-
-* Alternate turns between `X` and `O`
-* Prevent overwriting an occupied cell
-
-### Commit Message
+Suggested commit message format:
 
 ```
-Add turn-based gameplay
+Add <feature name>
 ```
 
----
+<br><br><br><br><br>
 
-## 📜 Exercise 5: Read Your History
+## Exercise 5: Read Your History
 
-### Goal
+Answer these using Git history only:
 
-Answer questions using Git history only.
+- Which commit added your feature?
+- Which commit fixed the crash?
 
-### Tasks
-
-* Find the commit that added turn-based gameplay
-* Find the commit that fixed invalid input
-
-### Commands
+Commands:
 
 ```bash
 git log --oneline
 git show <commit-hash>
 ```
 
-✍️ Write down:
+Write down the commit hash and message.
 
-* Commit hash
-* Commit message
-* What changed
+<br><br><br><br><br>
 
----
+## Submission Checklist
 
-## 🎯 Optional Challenges (Choose ONE)
-
-### Option A: Win Detection
-
-* Detect when a player wins
-* Print the winner
-* Commit message:
-
-```
-Add win condition detection
-```
-
-### Option B: Replay Option
-
-* Ask the user if they want to play again
-* Reset the board properly
-* Commit message:
-
-```
-Add replay option
-```
-
----
-
-## 📦 Submission Checklist
-
-Before submitting, make sure:
-
-* [ ] Program runs
-* [ ] Each feature has its own commit
-* [ ] Commit messages are meaningful
-* [ ] `git log --oneline` tells a clear story
-
----
-
-## 🧠 What This Homework Teaches
-
-This assignment is not about Tic-Tac-Toe.
-
-It’s about:
-
-* Thinking in **small changes**
-* Using Git as a **safety net**
-* Writing commits that explain your thinking
-* Building confidence to experiment
-
-➡️ If you can do this comfortably, you are **ready for team workflows**.
-
-```
-
----
-
-### Why this works well as homework
-- Clear grading boundaries (commit-based)
-- Forces **discipline**, not just coding
-- Project complexity is manageable
-- Directly prepares students for:
-  - Feature branches
-  - Pull requests
-  - Code reviews
-
-If you want next, I can:
-- Provide a **starter Tic-Tac-Toe skeleton**
-- Create a **grading rubric**
-- Convert this into a **GitHub Classroom assignment**
-- Write a **solution branch strategy** for instructors
-```
+- Program runs
+- Each task has its own commit
+- `git log --oneline` tells a clear story

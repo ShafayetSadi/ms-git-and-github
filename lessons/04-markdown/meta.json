@@ -1,5 +1,6 @@
 {
     "title": "Markdown Basics",
     "iconFamily": "fa-brands",
-    "icon": "markdown"
+    "icon": "markdown",
+    "completed": false
 }

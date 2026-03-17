@@ -8,9 +8,9 @@ keywords:
   - Shafayet Sadi
 ---
 
-## What is the Missing Semesters?
+## What Is the Missing Semester?
 
-**Missing Semesters** is a workshop series focused on teaching practical tools and workflows that are rarely taught in traditional classes, but are essential for real-world software development, productivity, and collaboration.
+**Missing Semester** is a workshop series focused on practical tools and workflows that are rarely taught in traditional classes, but are essential for real-world software development, productivity, and collaboration.
 
 These are the skills you usually learn **late**, **by accident**, or **the hard way**.
 
@@ -18,11 +18,22 @@ This workshop is here to change that.
 
 <br><br><br><br><br>
 
-## Who am I?
+## What You Will Be Able to Do
 
-As-salamu alaykum 👋  
+By the end of the first three sessions, you will be able to:
 
-I am **Shafayetul Huda Sadi**, and I’ll be guiding you through this Git & GitHub workshop as part of the **Missing Semester** initiative.
+- Explain **Git vs GitHub** clearly (no more mixing them up)
+- Save work safely with **small commits** (and recover when you break things)
+- Put a project on GitHub (push), download it elsewhere (clone), and update it (pull)
+- Follow a simple workflow you can use for assignments and projects
+
+<br><br><br><br><br>
+
+## Instructor
+
+As-salamu alaykum.
+
+I am **Shafayetul Huda Sadi**, and I will be guiding you through this Git & GitHub workshop as part of the **Missing Semester** initiative.
 
 You can find me here:
 
@@ -42,7 +53,7 @@ Missing Semester website:
 
 <br><br><br><br><br>
 
-## Let’s Imagine Some Real Scenarios
+## Why Git Exists (Real Scenarios)
 
 Think about these situations:
 

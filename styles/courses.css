@@ -450,6 +450,16 @@ ol.sections-name .lesson-details {
     position: relative;
 }
 
+ol.sections-name .lesson-details.is-incomplete {
+    opacity: 0.6;
+    filter: grayscale(0.15);
+}
+
+ol.sections-name .lesson-details.is-incomplete .details-bg,
+ol.sections-name .lesson-details.is-incomplete:hover .details-bg {
+    --corner-fill: var(--corner-inactive);
+}
+
 .details-bg {
     --corner-fill: var(--corner-inactive);
     transition: fill 0.25s;

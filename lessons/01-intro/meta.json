@@ -1,5 +1,6 @@
 {
-    "title": "Introduction to GitHub",
+    "title": "Introduction to Git",
     "iconFamily": "fa-brands",
-    "icon": "git-alt"
+    "icon": "git-alt",
+    "completed": true
 }

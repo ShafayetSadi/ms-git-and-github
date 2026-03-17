@@ -1,5 +1,6 @@
 {
     "title": "Project: Guessing Game",
     "iconFamily": "fa-solid",
-    "icon": "code"
+    "icon": "code",
+    "completed": true
 }

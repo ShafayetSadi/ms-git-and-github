@@ -220,10 +220,16 @@ git status
 git restore src/main.py
 ```
 
-Recover a deleted file:
+If you already staged the changes by mistake:
 
 ```bash
-git status
+git restore --staged src/main.py
+```
+
+Recover a deleted file (if the delete was staged, run the two commands below in order):
+
+```bash
+git restore --staged src/main.py
 git restore src/main.py
 ```
 
@@ -380,4 +386,3 @@ Commit with the same messages, but for `src/main.c`:
 git add src/main.c
 git commit -m "Add limited attempts"
 ```
-

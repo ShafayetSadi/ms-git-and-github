@@ -114,6 +114,7 @@ export async function getLessons() {
             icon = meta.icon;
         }
         iconFamily = resolveIconFamily(meta.iconFamily, icon);
+        const sectionCompleted = meta.completed !== false;
 
         const lessons = [];
         for (let lessonFilename of lessonsDir) {
@@ -159,6 +160,7 @@ export async function getLessons() {
             slug: sectionSlug,
             lessons,
             order: sectionOrder,
+            completed: sectionCompleted,
         });
     }
 
