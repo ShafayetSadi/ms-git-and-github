@@ -1,10 +1,10 @@
 import { useContext, useEffect } from "react";
 import Head from "next/head";
-import { getLesson, getAllLessonSlugs } from "../../../data/lesson";
-import getCourseConfig from "../../../data/course";
-import Corner from "../../../components/corner";
-import { Context } from "../../../context/headerContext";
-import createCopyCodeFunctionality from "../../../data/copyCode";
+import { getLesson, getAllLessonSlugs } from "../../../data/lesson.js";
+import getCourseConfig from "../../../data/course.js";
+import Corner from "../../../components/corner.js";
+import { Context } from "../../../context/headerContext.js";
+import createCopyCodeFunctionality from "../../../data/copyCode.js";
 import Link from "next/link";
 
 export default function LessonSlug({ post }) {

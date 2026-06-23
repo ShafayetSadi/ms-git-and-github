@@ -20,9 +20,8 @@ This workshop is here to change that.
 
 ## Who am I?
 
-As-salamu alaykum 👋  
-
-I am **Shafayetul Huda Sadi**, and I’ll be guiding you through this Git & GitHub workshop as part of the **Missing Semester** initiative.
+As-salamu alaykum 👋 <br>
+I am **Shafayetul Huda Sadi** 🌱
 
 You can find me here:
 
@@ -31,14 +30,31 @@ You can find me here:
 - [Twitter][twitter]
 - [Facebook][facebook]
 
-Missing Semester website:  
-👉 [ms.ece.ruet.ac.bd][ms]
+<br>
 
-[github]: https://github.com/shafayetsadi  
-[linkedin]: https://linkedin.com/in/shafayetsadi  
-[twitter]: https://twitter.com/shafayet_sadi  
-[facebook]: https://www.facebook.com/shafayet.sadi.7  
-[ms]: https://www.ms.ece.ruet.ac.bd  
+Missing Semester website:  
+👉 [missing-semester][ms]
+
+[github]: https://github.com/shafayetsadi
+[linkedin]: https://linkedin.com/in/shafayetsadi
+[twitter]: https://twitter.com/shafayet_sadi
+[facebook]: https://www.facebook.com/shafayet.sadi.7
+[ms]: https://missing-semesters-ruet.github.io/missing-semester/
+
+<br><br><br><br><br>
+
+## The Goal
+
+To teach you enough of Git and GitHub so that:
+
+- Not to do this:
+  - `project_final.zip`
+  - `project_final_v2.zip`
+  - `project_final_v3_REAL_last.zip`
+  - `project_vai_eitai_last_ar_partesina.zip`
+- Participate in Hackathons
+- Work like professional developers
+- ~~Not to become a **VibeCoder**~~
 
 <br><br><br><br><br>
 
@@ -46,14 +62,14 @@ Missing Semester website:
 
 Think about these situations:
 
-- You want to **showcase what you have built** to seniors, teachers, or recruiters. How do you do that?
-- You are working on a project with a friend:
+- You want to **showcase what you have built** to your seniors, teachers, or recruiters. How do you do that?
+- You are participating in a hackathon with your friends:
   - You handle the frontend UI
-  - Your friend works on the backend API  
-  How do you share code?  
-  Email a `.zip` file? Google Drive? Pendrive?
+  - Your friend works on the backend API
+  - How do you share code?
+  - Email a `.zip` file? Google Drive? Pendrive?
 - You have spent weeks working on a project with thousands of lines of code, and suddenly:
-  - Your OS crashes
+  - Your OS crashes **\[Windows Blue Screen of Death]**
   - Your laptop stops booting
   - Everything is gone
 
@@ -68,18 +84,23 @@ Every developer faces them.
 
 ![Git XKCD](https://imgs.xkcd.com/comics/git.png)
 
+<br><br><br><br><br>
+
+## Git?
+
 > **Git** is a **free and open-source, distributed version control system** designed to track changes in source code and help developers collaborate safely and efficiently.
 
 In simple terms, Git allows you to:
 
 - Track every change you make to your code
-- Go back to any previous version
+- Go back to any previous version (commit)
 - See who changed what and when
 - Work with others without overwriting each other’s work
 - Feel safe while experimenting and making mistakes
 
-Git is not magic.  
-It is a **safety system for your work**.
+> Git is not magic. It is a **safety system for your work**.
+
+Think of Git as a save-game system for your projects. Every commit is a checkpoint you can return to later.
 
 <br><br><br><br><br>
 
@@ -104,9 +125,9 @@ Git turns chaos into history.
 - **GitHub** is a platform that hosts Git repositories online and adds collaboration features
 
 You can use Git **without** GitHub.  
-GitHub simply makes Git more powerful and easier to share.
+GitHub simply makes Git more powerful and easier to collaborate.
 
-We’ll understand this difference clearly in the next lessons.
+> We’ll understand this difference clearly in the next lessons.
 
 <br><br><br><br><br>
 
@@ -121,3 +142,6 @@ By the end of this workshop series, you will be able to:
 - Understand how real developers work on real projects
 
 No prior experience required — just curiosity.
+
+By the end of today's workshop, you will create your first Git repository,
+save changes with commits, and understand the workflow used by professional software developers.

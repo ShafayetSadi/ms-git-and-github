@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Link from "next/link";
-import { Context as HeaderContext } from "../context/headerContext";
-import { Context as CourseContext } from "../context/courseInfoContext";
+import { Context as HeaderContext } from "../context/headerContext.js";
+import { Context as CourseContext } from "../context/courseInfoContext.js";
 
 export default function Header(props) {
     const [{ section, title, icon, iconFamily }] = useContext(HeaderContext);

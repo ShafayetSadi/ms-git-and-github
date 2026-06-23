@@ -1,4 +1,4 @@
-import config from "../course.json";
+import config from "../course.json" with { type: "json" };
 
 const DEFAULT_CONFIG = {
     author: {

@@ -5,7 +5,7 @@ import { titleCase } from "title-case";
 import { Marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
-import getCourseConfig from "./course";
+import getCourseConfig from "./course.js";
 
 const DEFAULT_ICON = "circle-info";
 const BRAND_ICONS = new Set([

@@ -6,7 +6,7 @@ import "../styles/variables.css";
 import "../styles/footer.css";
 import "../styles/courses.css";
 
-import Layout from "../components/layout";
+import Layout from "../components/layout.js";
 
 export default function App({ Component, pageProps }) {
     return (

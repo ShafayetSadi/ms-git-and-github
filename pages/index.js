@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import { getLessons } from "../data/lesson";
+import { getLessons } from "../data/lesson.js";
 
-import Corner from "../components/corner";
-import getCourseConfig from "../data/course";
+import Corner from "../components/corner.js";
+import getCourseConfig from "../data/course.js";
 
 export default function Lessons({ sections }) {
     const courseInfo = getCourseConfig();

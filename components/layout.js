@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import Footer from "./footer";
-import Header from "./header";
-import getCourseConfig from "../data/course";
-import { Provider as HeaderProvider } from "../context/headerContext";
-import { Provider as CourseInfoProvider } from "../context/courseInfoContext";
+import Footer from "./footer.js";
+import Header from "./header.js";
+import getCourseConfig from "../data/course.js";
+import { Provider as HeaderProvider } from "../context/headerContext.js";
+import { Provider as CourseInfoProvider } from "../context/courseInfoContext.js";
 
 function Layout({ children }) {
   const courseInfo = getCourseConfig();

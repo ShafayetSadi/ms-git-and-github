@@ -1,9 +1,9 @@
 import React from "react";
-import Gh from "./github";
-import Tw from "./twitter";
-import Li from "./linkedin";
-import Bs from "./bluesky";
-import ThemeIcons from "./themeicons";
+import Gh from "./github.js";
+import Tw from "./twitter.js";
+import Li from "./linkedin.js";
+import Bs from "./bluesky.js";
+import ThemeIcons from "./themeicons.js";
 
 export default function Footer({ twitter, linkedin, github, bluesky }) {
   return (
