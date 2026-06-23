@@ -13,139 +13,183 @@ keywords:
 A **Git repository (repo)** is simply a **project folder that Git is tracking**.
 
 Once a folder becomes a Git repository:
-- Git watches files inside it
+
+- Git can track files inside it
 - Git remembers changes you save
 - Git builds a history over time
 
 At the start, it’s just a normal folder — Git only adds **tracking**, not magic.
 
----
+<br><br><br><br><br>
 
 ## Creating Your First Repository
 
 Let’s create a new project folder and turn it into a Git repository.
 
-```bash
-mkdir git-n-github
-cd git-n-github
-````
+- First, create the folder and navigate into it:
 
-Now initialize Git:
+  ```bash
+  mkdir ms-git
+  cd ms-git
+  ```
 
-```bash
-git init
-```
+- Now, initialize Git:
 
-You should see a message saying something like:
+  ```bash
+  git init
+  ```
 
-```
-Initialized empty Git repository
-```
+- You should see a message saying something like:
+
+  ```bash
+  Initialized empty Git repository
+  ```
+
+- Run `ls -la` to see the hidden `.git` folder:
+
+  ```bash
+  ls -la
+  ```
+
+<br><br><br><br><br>
 
 ### What just happened?
 
 Git created a hidden folder named:
 
-```
+```bash
 .git/
 ```
 
 This folder stores:
 
-* project history
-* commits
-* configuration
+- project history
+- commits
+- configuration
 
-📌 **Important**
-If you delete the `.git` folder, your project is no longer a Git repository.
+📌 If you delete the `.git` folder, your project is no longer a Git repository. And you lose all your history and changes.
 
----
+<br><br><br><br><br>
 
 ## Adding Files to the Repository
 
-Create a file:
+- Create a file and add some content:
 
-```bash
-touch main.py
-```
+  ```bash
+  touch main.py
+  echo "print('Hello, Git!')" > main.py
+  ```
 
-Check Git’s status:
+- Check Git’s status:
 
-```bash
-git status
-```
+  ```bash
+  git status
+  ```
 
-Git will tell you:
+- Git will tell you:
 
-* `main.py` is **untracked**
-* Git sees it, but is not tracking it yet
+  - `main.py` is **untracked**
+  - Git sees it, but is not tracking it yet
 
----
+<br><br><br>
 
 ### Stage the File
 
-```bash
-git add main.py
-```
+- To add `main.py` to the staging area:
 
-Now `main.py` is **staged** — ready to be saved.
+  ```bash
+  git add main.py
+  ```
 
----
+- Check Git's status again:
+
+  ```bash
+  git status
+  ```
+
+- Git will tell you:
+  - `main.py` is **staged**
+  - It's ready to be saved
+
+> Now `main.py` is **staged** — ready to be saved.
+
+<br><br><br>
 
 ### Make Your First Commit
 
-```bash
-git commit -m "Initial commit"
-```
+- To save `main.py` to the repository:
+
+  ```bash
+  git commit -m "Initial commit"
+  ```
+
+- Run `git status` again to confirm:
+
+  ```bash
+  git status
+  ```
+
+- Git will tell you:
+  - `main.py` is no longer **staged**
+  - It's been saved to the repository
 
 🎉 Congratulations!
 You just created your **first version** of the project.
 
-This commit is now a permanent snapshot in history.
+> This commit is a snapshot of your project at this moment in time.
 
----
+<br><br><br><br><br>
 
 ## How Git Thinks About Your Project
 
 To understand Git, you need to understand **three places**.
 
-```
-Working Directory → Staging Area → Repository
+```mermaid
+flowchart LR
+    WD[Working Directory]
+    ADD([git add])
+    SA[Staging Area]
+    COMMIT([git commit])
+    REPO[Repository]
+
+    WD --> ADD --> SA --> COMMIT --> REPO
 ```
 
----
+📌 This mental model will explain **almost every Git command** you’ll learn.
 
-### 1️⃣ Working Directory
+<br><br><br><br><br>
+
+## Working Directory
 
 This is your actual project folder:
 
-* where you write code
-* where you edit files
+- where you write code
+- where you edit files
 
 Any change you make starts here.
 
----
+<br><br><br><br><br>
 
-### 2️⃣ Staging Area
+## Staging Area
 
-This is where you tell Git:
+- This is where you tell Git:
 
 > “These are the changes I want to save next.”
 
-You move changes here using:
+- You move changes here using:
 
 ```bash
-git add
+git add file_name
 ```
 
----
+<br><br><br><br><br>
 
-### 3️⃣ Repository
+## Repository
 
 This is Git’s memory:
 
-* every commit lives here
-* nothing is lost unless you delete history
+- every commit lives here
+- nothing is lost unless you delete history
 
 When you run:
 
@@ -155,71 +199,18 @@ git commit
 
 Git takes everything from the staging area and stores it permanently.
 
----
-
-### Visual Summary
-
-```
-┌──────────────┐
-│ Working Dir  │
-│ (edit files) │
-└───────┬──────┘
-        │ git add
-        ▼
-┌──────────────┐
-│ Staging Area │
-│ (ready to    │
-│  be saved)   │
-└───────┬──────┘
-        │ git commit
-        ▼
-┌──────────────┐
-│ Repository   │
-│ (history)    │
-└──────────────┘
-```
-
-📌 This mental model will explain **almost every Git command** you’ll learn.
-
----
+<br><br><br><br><br>
 
 ## Key Terms (Keep These in Mind)
 
-* **Repository (repo)**
-  A project folder tracked by Git
+- **Repository (repo):** A project folder tracked by Git
+- **Commit:** A saved snapshot of the entire project at a point in time
+- **Working directory:** Your current files and edits
 
-* **Commit**
-  A saved snapshot of the entire project at a point in time
+- **Staging area:** The place where changes wait before being committed
 
-* **Working directory**
-  Your current files and edits
+- **Tracked file:** A file Git knows about
 
-* **Staging area**
-  The place where changes wait before being committed
-
-* **Tracked file**
-  A file Git knows about
-
-* **Untracked file**
-  A file Git sees but is not tracking yet
+- **Untracked file:** A file Git sees but is not tracking yet
 
 You don’t need to memorize these — you’ll use them repeatedly.
-
----
-
-## What’s Next?
-
-Now that you can:
-
-* create a repository
-* add files
-* make commits
-
-Next, we’ll learn **basic Git commands** to:
-
-* check project status
-* see changes
-* explore history
-* undo mistakes safely
-
-This is where Git starts to feel powerful 🚀
