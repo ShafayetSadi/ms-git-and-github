@@ -84,6 +84,49 @@ export default function LessonSlug({ post }) {
         createCopyCodeFunctionality();
     });
 
+    useEffect(() => {
+        let cancelled = false;
+
+        async function renderMermaid() {
+            const mermaidBlocks = document.querySelectorAll(".mermaid");
+            if (mermaidBlocks.length === 0) {
+                return;
+            }
+
+            const mermaid = (await import("mermaid")).default;
+            if (cancelled) {
+                return;
+            }
+
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: "base",
+                themeVariables: {
+                    primaryColor: "#ede9fe",
+                    primaryBorderColor: "#8b5cf6",
+                    primaryTextColor: "#111827",
+                    secondaryColor: "#dbeafe",
+                    secondaryBorderColor: "#3b82f6",
+                    secondaryTextColor: "#111827",
+                    lineColor: "#94a3b8",
+                    edgeLabelBackground: "#1f2937",
+                    tertiaryColor: "#1e293b",
+                    fontFamily: '"Open Sans", sans-serif',
+                },
+            });
+            await mermaid.run({
+                querySelector: ".mermaid",
+                suppressErrors: false,
+            });
+        }
+
+        renderMermaid();
+
+        return () => {
+            cancelled = true;
+        };
+    }, [post.html]);
+
     const title = post.title
         ? `${post.title} – ${courseInfo.title}`
         : courseInfo.title;

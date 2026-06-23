@@ -674,3 +674,19 @@ pre:hover .copy-button,
 pre:focus-within .copy-button {
     opacity: 1;
 }
+
+.lesson-content .mermaid {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background-color: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 6px;
+}
+
+.lesson-content .mermaid svg {
+    display: block;
+    max-width: none;
+    height: auto;
+    margin: 0 auto;
+}

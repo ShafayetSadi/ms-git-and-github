@@ -24,6 +24,22 @@ function resolveIconFamily(iconFamily, icon) {
 }
 const lessonsPath = path.join(process.cwd(), "lessons");
 
+function decodeHtml(value) {
+    return value
+        .replaceAll("&amp;", "&")
+        .replaceAll("&lt;", "<")
+        .replaceAll("&gt;", ">")
+        .replaceAll("&quot;", '"')
+        .replaceAll("&#39;", "'");
+}
+
+function postprocessMermaidHtml(html) {
+    return html.replace(
+        /<pre><code class="hljs language-mermaid">([\s\S]*?)<\/code><\/pre>/g,
+        (_, diagram) => `<div class="mermaid">\n${decodeHtml(diagram).trim()}\n</div>`,
+    );
+}
+
 const marked = new Marked(
     markedHighlight({
         baseUrl: process.env.BASE_URL ? process.env.BASE_URL + "/" : "/",
@@ -232,7 +248,7 @@ export async function getLesson(targetDir, targetFile) {
                             iconFamily,
                         };
                     }
-                    const html = marked.parse(content);
+                    const html = postprocessMermaidHtml(marked.parse(content));
                     const title = getTitle(targetFile, data.title);
                     const meta = await getMeta(dirPath);
 
