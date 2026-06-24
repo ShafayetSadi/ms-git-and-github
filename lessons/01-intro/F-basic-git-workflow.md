@@ -1,6 +1,6 @@
 ---
-title: "Basic Git Commands"
-description: "Learn the core Git commands used in everyday Git workflows."
+title: "Basic Git Workflow"
+description: "Learn the core Git workflow used in everyday development."
 keywords:
   - Git
   - Commit
@@ -9,83 +9,119 @@ keywords:
   - Shafayet Sadi
 ---
 
-## The Basic Git Workflow
+## The Daily Git Workflow
 
-Almost all Git usage follows this simple flow:
+- Almost all Git usage follows the same simple pattern:
 
+```mermaid
+flowchart LR
+    A[Edit files] --> B[git status]
+    B --> C[git add]
+    C --> D[git commit]
+    D --> E[git log]
 ```
 
-Edit files → Stage changes → Commit snapshot
+- As a developer, you will repeat this cycle many times every day.
 
-````
+<br><br><br><br><br>
 
-The commands below support this workflow.
+## Let's Make Another Commit
 
----
+Let's continue from the repository we created in the previous lesson.
 
-## Track (Stage) Files
+<br><br><br>
 
-When you create or modify a file, Git does **not** save it automatically.  
-You must explicitly choose what to include in the next commit.
+### Step 1: Modify a File
 
-```bash
-git add filename
-````
-
-Example:
+Add another line to `main.py`:
 
 ```bash
-git add main.py
+echo "print('Learning Git!')" >> main.py
 ```
 
-📌 This moves changes from the **working directory** to the **staging area**.
+Now the file has changed.
 
----
+<br><br><br>
 
-## Commit Changes
+### Step 2: Check the Status
 
-A **commit** saves a snapshot of everything currently in the staging area.
-
-```bash
-git commit -m "Descriptive message"
-```
-
-Good commit messages:
-
-* explain **what** changed
-* explain **why** it changed
-
-Example:
-
-```bash
-git commit -m "Add initial guessing game logic"
-```
-
----
-
-## Check Repository Status
-
-At any time, you can ask Git:
-
-> “What’s going on right now?”
+Ask Git what changed:
 
 ```bash
 git status
 ```
 
-This shows:
+You should see something similar to:
 
-* which files are modified
-* which files are staged
-* which files are untracked
+```text
+Changes not staged for commit:
+  modified: main.py
+```
 
-📌 `git status` is your **best friend** while learning Git.
+📌 Git sees the change, but it is not ready to be committed yet.
 
----
+<br><br><br>
 
-## View Commit History
+### Step 3: Stage the Change
 
-To see the timeline of your project:
+Tell Git you want to include the change in the next commit:
+
+```bash
+git add main.py
+```
+
+Check the status again:
+
+```bash
+git status
+```
+
+You should see something similar to:
+
+```text
+Changes to be committed:
+  modified: main.py
+```
+
+📌 This moves changes from the working directory to the staging area.
+
+<br><br><br>
+
+### Step 4: Create a Commit
+
+Save the staged change:
+
+```bash
+git commit -m "Add another print statement"
+```
+
+This creates a new snapshot of your project.
+
+<br><br><br>
+
+### Step 5: Verify Everything
+
+Check the status one more time:
+
+```bash
+git status
+```
+
+You should see:
+
+```text
+nothing to commit, working tree clean
+```
+
+📌 Your changes are now safely stored in Git history.
+
+<br><br><br><br><br>
+
+## Viewing History
+
+Git stores commits in a timeline called the project history.
+
+To view the history:
 
 ```bash
 git log
@@ -93,68 +129,89 @@ git log
 
 This shows:
 
-* commit IDs
-* author
-* date
-* commit message
+- commit IDs
+- author
+- date
+- commit messages
 
-For a simpler view:
+<br><br><br>
+
+### A shorter version
 
 ```bash
 git log --oneline
 ```
 
----
+Example:
 
-## Typical Usage Pattern
-
-A very common Git workflow looks like this:
-
-```bash
-git status
-git add main.py
-git commit -m "Fix input validation bug"
+```text
+8a7c123 Add another print statement
+2b9d456 Initial commit
 ```
 
-You will repeat this pattern many times.
+- Each line represents a snapshot in your project's history.
 
----
+📌 If Git opens the log in a pager, press `q` to exit.
 
-## Summary Table
+<br><br><br><br><br>
 
-| Command      | Purpose                     |
-| ------------ | --------------------------- |
-| `git init`   | Initialize a Git repository |
-| `git add`    | Stage changes for commit    |
-| `git commit` | Save a snapshot to history  |
-| `git status` | Show current project state  |
-| `git log`    | View commit history         |
+## Understanding the Commands
 
----
+<br><br><br>
+
+### git status
+
+- Shows the current state of your repository.
+- Use it whenever you are unsure what Git is doing.
+
+📌 While learning Git, `git status` is your best friend.
+
+<br><br><br>
+
+### git add
+
+- Moves changes from the **working directory** to the **staging area**.
+
+  ```bash
+  git add main.py
+  ```
+
+- Think of it as selecting what you want to save next.
+
+<br><br><br>
+
+### git commit
+
+- Creates a snapshot from everything currently staged.
+
+```bash
+git commit -m "Add another print statement"
+```
+
+- Think of a commit as pressing **Save Game** in a video game.
+
+- If you never save, Git cannot take you back later.
+
+<br><br><br>
+
+### git log
+
+- Shows the history of commits.
+
+```bash
+git log --oneline
+```
+
+- This lets you see how your project evolved over time.
+
+<br><br><br><br><br>
 
 ## Important Reminder
 
-Git does **not** automatically save your work.
+Git does not automatically create history.
 
-* Editing a file ≠ saving a version
-* Only a **commit** creates history
+- Editing a file is not enough
+- Saving a file is not enough
+- Only a commit creates a new snapshot
 
-If something is not committed, Git cannot restore it later.
-
----
-
-## What’s Next?
-
-Now that you can:
-
-* stage files
-* commit changes
-* inspect history
-
-Next, we’ll learn how to:
-
-* compare changes
-* undo mistakes safely
-* recover lost work
-
-This is where Git starts to feel like a safety net 🛡️
+> If you never commit your work, Git has nothing to restore later.

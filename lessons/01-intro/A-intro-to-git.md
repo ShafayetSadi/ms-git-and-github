@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Git"
+title: "Intro to Git"
 description: "Understand what Git is, why it exists, and how it helps developers work safely and collaboratively."
 keywords:
   - Git
