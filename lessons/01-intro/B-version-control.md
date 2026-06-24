@@ -16,6 +16,8 @@ Imagine you are working on a project.
 - Tomorrow, you make some changes.
 - The next day, something breaks.
 
+<br><br><br>
+
 Now you have questions:
 
 - What changed?
@@ -26,6 +28,8 @@ Now you have questions:
 These are exactly the problems that **version control** solves.
 
 <br><br><br><br><br>
+
+## So, What Is Version Control?
 
 > **Version control** is a system that records changes to files over time, allowing you to see what changed, when it changed, and restore older versions when necessary.
 
@@ -66,6 +70,8 @@ Suppose you are building a calculator application.
 - On Tuesday: You add a new feature.
 - On Wednesday: The application crashes.
 
+<br><br><br>
+
 Now you cannot remember:
 
 - Which file changed
@@ -73,6 +79,8 @@ Now you cannot remember:
 - When the bug was introduced
 
 Without version control, you might spend hours trying to fix the problem.
+
+<br><br><br>
 
 With version control, you can simply ask:
 
@@ -98,7 +106,9 @@ Developer 3 ---> Server
 
 This improves collaboration, but everyone depends on the central server.
 
-If the server becomes unavailable, work becomes difficult.
+If the server becomes unavailable, everyone is affected.
+
+<br><br><br><br><br>
 
 ## Distributed Version Control
 
@@ -110,23 +120,13 @@ Developer 2  ✓ Full History
 Developer 3  ✓ Full History
 ```
 
-Developers can work independently and synchronize later.
+Developers can work independently and synchronize their work later.
 
-This is one of the reasons Git became the most popular version control system in the world.
+> This is one of the reasons Git became the most popular version control system in the world.
 
 <br><br><br><br><br>
 
-## Why Git Uses a Distributed Model
-
-Git does not only store your files; it also stores the entire history of your project.
-
-This means:
-
-- You can work offline
-- You can save changes locally
-- You can inspect old versions
-- You can recover from mistakes
-- You can collaborate efficiently
+## Why This Matters
 
 Because every developer has a complete copy of the project history, Git is:
 
@@ -136,5 +136,3 @@ Because every developer has a complete copy of the project history, Git is:
 - Collaboration-friendly
 
 > Don't worry if the idea of "distributed version control" feels abstract right now.
-
-We will revisit this concept after using Git ourselves. Once you create repositories and make commits, the reason Git is called a distributed version control system will become much clearer.
