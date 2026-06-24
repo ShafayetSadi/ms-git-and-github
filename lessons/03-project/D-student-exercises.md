@@ -1,250 +1,232 @@
-Here’s a **homework-style rewrite**, more structured, slightly stricter, and framed like a real assignment.
-I’ve also **changed the project to Tic-Tac-Toe**, while keeping the Git learning goals identical.
-
 ---
-
-````markdown
----
-title: "Homework: Git Practice Project"
-description: "Apply Git concepts by building and evolving a small Tic-Tac-Toe CLI project."
+title: "Homework: Build a CLI Todo App with Git"
+description: "Practice Git by building a Todo application through a series of meaningful commits."
 keywords:
   - Git
   - Homework
-  - Practice
+  - Todo App
   - Commits
+  - Missing Semester
   - Shafayet Sadi
 ---
 
-## 📌 Homework Overview
+## Homework Goal
 
-This homework is designed to make Git **muscle memory**, not theory.
+The purpose of this assignment is not to build the perfect Todo application.
 
-You will:
-- Build a small **CLI Tic-Tac-Toe game**
-- Save progress using **clean, meaningful commits**
-- Practice **breaking and recovering code**
-- Learn to **read Git history like a timeline**
+The purpose is to practice:
 
-⏱️ Estimated time: 60–90 minutes
+- Building software incrementally
+- Making small changes
+- Creating meaningful commits
+- Thinking in versions instead of final products
 
----
+By the end, your Git history should tell the story of how your project evolved.
 
-## Project Rules (Read First)
+<br><br><br><br><br>
 
-- Use **one commit per task**
-- Do **not** combine multiple changes in one commit
-- Run the program before every commit
-- Use **clear commit messages** (provided below)
+## Project
 
----
+Build a simple command-line Todo application.
 
-## Project Setup
+You may use:
 
-Create a new project:
+- Python
+- C
+- C++
+- Java
+- Any language you are comfortable with
 
-```bash
-mkdir cli-tic-tac-toe
-cd cli-tic-tac-toe
-mkdir src
-git init
-````
+The language does not matter.
 
-Create the file:
+The Git workflow does.
 
-```
-src/main.py
-```
+<br><br><br><br><br>
 
----
+## Rules
 
-## 🧪 Exercise 1: Initial Working Version
+- Create one commit per feature
+- Do not combine multiple features into one commit
+- Run the program before committing
+- Use meaningful commit messages
 
-### Goal
+Good:
 
-Create a minimal Tic-Tac-Toe board that prints correctly.
-
-### Requirements
-
-* 3×3 board
-* Printed using `X`, `O`, and empty cells
-* No game logic required yet
-
-Example output:
-
-```
-X | O | X
----------
-  | X | O
----------
-O |   |
+```text
+Add task creation
+Add task deletion
+Mark tasks as completed
 ```
 
-### Commit Message
+Bad:
 
-```
-Initial version: print tic-tac-toe board
+```text
+update
+changes
+final
 ```
 
-### Success Check
+<br><br><br><br><br>
+
+## Example Evolution
+
+Follow the first few commits below.
+
+### Commit 1
+
+Create a basic Todo application.
+
+Example:
+
+```text
+Todo List
+
+No tasks yet.
+```
+
+Commit message:
+
+```text
+Create basic todo application
+```
+
+<br><br><br>
+
+### Commit 2
+
+Allow users to add tasks.
+
+Example:
+
+```text
+1. Buy milk
+2. Complete assignment
+```
+
+Commit message:
+
+```text
+Add task creation
+```
+
+<br><br><br>
+
+### Commit 3
+
+Display task numbers.
+
+Example:
+
+```text
+1. Buy milk
+2. Complete assignment
+3. Call friend
+```
+
+Commit message:
+
+```text
+Add task numbering
+```
+
+<br><br><br>
+
+### Commit 4
+
+Allow users to mark tasks as completed.
+
+Example:
+
+```text
+[x] Buy milk
+[ ] Complete assignment
+```
+
+Commit message:
+
+```text
+Add task completion status
+```
+
+<br><br><br>
+
+### Commit 5
+
+Allow users to delete tasks.
+
+Commit message:
+
+```text
+Add task deletion
+```
+
+<br><br><br><br><br>
+
+## Continue on Your Own
+
+After the first five commits, continue improving the project.
+
+Possible features:
+
+- Edit existing tasks
+- Task priorities
+- Due dates
+- Categories
+- Search tasks
+- Filter completed tasks
+- Show task statistics
+- Save tasks to a file
+- Load tasks from a file
+- Better menu design
+- Colored output
+- Confirmation before deletion
+- Sort tasks
+- Archive completed tasks
+
+You do not need to implement all of them.
+
+Choose features that interest you.
+
+<br><br><br><br><br>
+
+## Submission
+
+Run:
 
 ```bash
 git log --oneline
 ```
 
----
+Take a screenshot and submit it.
 
-## 🧨 Exercise 2: Break It and Recover It
+Your history should clearly show how the project evolved over time.
 
-### Goal
+Example:
 
-Practice recovery without panic.
-
-### Steps
-
-1. Delete or break an important line so the program crashes.
-2. Run it and confirm it fails.
-3. Restore the file back to the last commit.
-
-### Commands
-
-```bash
-git status
-git restore src/main.py
+```text
+Add task priorities
+Add task deletion
+Add task completion status
+Add task numbering
+Add task creation
+Create basic todo application
 ```
 
-📌 **Do not commit the broken version.**
+The exact commits will be different.
 
----
+What matters is that the history tells a clear story.
 
-## 🐛 Exercise 3: One Bug Fix = One Commit
+<br><br><br><br><br>
 
-### Goal
+## Success Criteria
 
-Learn focused bug-fix commits.
+You have successfully completed this assignment if:
 
-### Task
+- The program runs
+- Each feature has its own commit
+- Commit messages are meaningful
+- Your Git history shows the evolution of the project
 
-* Add player input (row & column)
-* Make it crash on invalid input (e.g. letters)
-* Fix the crash using input validation
+📌 Remember: We are not grading the Todo application.
 
-### Commit Message
-
-```
-Fix crash on invalid player input
-```
-
----
-
-## ✨ Exercise 4: Add a Feature (Turns)
-
-### Goal
-
-Add real game behavior.
-
-### Requirements
-
-* Alternate turns between `X` and `O`
-* Prevent overwriting an occupied cell
-
-### Commit Message
-
-```
-Add turn-based gameplay
-```
-
----
-
-## 📜 Exercise 5: Read Your History
-
-### Goal
-
-Answer questions using Git history only.
-
-### Tasks
-
-* Find the commit that added turn-based gameplay
-* Find the commit that fixed invalid input
-
-### Commands
-
-```bash
-git log --oneline
-git show <commit-hash>
-```
-
-✍️ Write down:
-
-* Commit hash
-* Commit message
-* What changed
-
----
-
-## 🎯 Optional Challenges (Choose ONE)
-
-### Option A: Win Detection
-
-* Detect when a player wins
-* Print the winner
-* Commit message:
-
-```
-Add win condition detection
-```
-
-### Option B: Replay Option
-
-* Ask the user if they want to play again
-* Reset the board properly
-* Commit message:
-
-```
-Add replay option
-```
-
----
-
-## 📦 Submission Checklist
-
-Before submitting, make sure:
-
-* [ ] Program runs
-* [ ] Each feature has its own commit
-* [ ] Commit messages are meaningful
-* [ ] `git log --oneline` tells a clear story
-
----
-
-## 🧠 What This Homework Teaches
-
-This assignment is not about Tic-Tac-Toe.
-
-It’s about:
-
-* Thinking in **small changes**
-* Using Git as a **safety net**
-* Writing commits that explain your thinking
-* Building confidence to experiment
-
-➡️ If you can do this comfortably, you are **ready for team workflows**.
-
-```
-
----
-
-### Why this works well as homework
-- Clear grading boundaries (commit-based)
-- Forces **discipline**, not just coding
-- Project complexity is manageable
-- Directly prepares students for:
-  - Feature branches
-  - Pull requests
-  - Code reviews
-
-If you want next, I can:
-- Provide a **starter Tic-Tac-Toe skeleton**
-- Create a **grading rubric**
-- Convert this into a **GitHub Classroom assignment**
-- Write a **solution branch strategy** for instructors
-```
+We are practicing Git.
