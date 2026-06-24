@@ -254,6 +254,30 @@ header .cta-btn {
     max-width: 300px;
 }
 
+.lesson h3 {
+    font-size: 20px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: var(--text-header);
+}
+
+.lesson h3::after {
+    content: "";
+    display: block;
+    height: 2px;
+    margin-top: 4px;
+    background: var(--text-header);
+    max-width: 200px;
+}
+
+[data-theme="dark"] .lesson h3 {
+    color: var(--secondary);
+}
+
+[data-theme="dark"] .lesson h3::after {
+    background: var(--secondary);
+}
+
 .lesson p {
     clear: both;
 }
@@ -567,10 +591,12 @@ pre code,
 pre code.hljs {
     display: block;
     position: relative;
+    overflow: visible;
 }
 
 pre {
     position: relative;
+    overflow: visible;
 }
 
 .copy-button {
@@ -580,13 +606,13 @@ pre {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     padding: 0;
     background: var(--code-copy-bg);
     color: var(--code-copy-text);
     border: 1px solid var(--code-copy-border);
-    border-radius: 6px;
+    border-radius: 5px;
     line-height: 0;
     cursor: pointer;
     opacity: 0;
@@ -613,7 +639,7 @@ pre {
     position: absolute;
     right: 0;
     bottom: calc(100% + 6px);
-    padding: 4px 8px;
+    padding: 2px 8px;
     border-radius: 6px;
     background: #24292f;
     color: #ffffff;
