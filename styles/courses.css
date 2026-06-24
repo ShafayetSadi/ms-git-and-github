@@ -545,12 +545,14 @@ ol.sections-name .lesson-details {
 }
 
 code {
-    padding: 0.15em 0.35em;
-    font-size: 0.9em;
+    padding: 0.15em 0.25em;
+    font-size: 0.85em;
 }
 
-pre code {
+pre code,
+pre code.hljs {
     padding: 0.5rem;
+    font-size: 0.8rem;
 }
 
 code,
