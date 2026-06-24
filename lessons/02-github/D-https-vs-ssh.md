@@ -1,171 +1,249 @@
-Here’s a **clearer, more complete, and teaching-ready version**, with better structure, correct security wording, and smoother explanations—perfect for your GitHub session.
-
----
-
-````markdown
 ---
 title: "Using HTTPS vs SSH with GitHub"
-description: "Understand the difference between HTTPS and SSH, and learn how to use SSH keys to connect to GitHub securely without typing credentials every time."
+description: "Learn the difference between HTTPS and SSH, and set up SSH authentication with GitHub."
 keywords:
   - SSH
   - HTTPS
   - GitHub
-  - authentication
+  - Authentication
+  - Missing Semester
   - Shafayet Sadi
 ---
 
-## HTTPS vs SSH (Big Picture)
+## A Common Annoyance
 
-When Git talks to GitHub, it needs a way to **authenticate you**. There are two common methods:
+Imagine this:
+
+```text
+git push
+    ↓
+Authenticate
+
+git pull
+    ↓
+Authenticate
+
+git push
+    ↓
+Authenticate
+```
+
+Typing credentials repeatedly becomes annoying very quickly.
+
+There is a better solution.
+
+It's called **SSH**.
+
+<br><br><br><br><br>
+
+## HTTPS vs SSH
+
+When Git communicates with GitHub, it needs to prove that you are allowed to access the repository.
+
+There are two common ways to do that.
+
+<br><br><br>
 
 ### HTTPS
-- Uses username + **Personal Access Token (PAT)**
-- You may be asked for credentials
-- Easier for beginners
-- Slightly inconvenient for frequent pushes
+
+- Uses a Personal Access Token (PAT)
+- May ask you to authenticate
+- Easy to understand
+- Works everywhere
+
+Example:
+
+```bash
+https://github.com/USERNAME/REPOSITORY.git
+```
+
+<br><br><br>
 
 ### SSH
-- Uses **cryptographic keys**
-- No passwords or tokens required after setup
-- More secure and faster
-- Preferred by professional developers
 
-> **SSH is a “set it once, forget it” solution.**
+- Uses cryptographic keys
+- No passwords or tokens after setup
+- Faster for daily development
+- Preferred by many developers
 
----
+Example:
+
+```bash
+git@github.com:USERNAME/REPOSITORY.git
+```
+
+<br><br><br>
+
+> 📌 Both URLs point to the same repository. Only the authentication method is different.
+
+<br><br><br><br><br>
 
 ## Why Use SSH?
 
-- 🔐 No need to type username or access token repeatedly
-- 🚀 Faster authentication
-- 🛡️ More secure (public/private key cryptography)
-- 💻 Ideal for daily development work
+SSH is popular because you set it up once and then forget about it.
 
----
+Benefits:
 
-## How SSH Authentication Works (Simple Explanation)
+- No repeated authentication
+- Faster workflow
+- Secure authentication
+- Great for daily development
 
-1. You generate a **key pair**:
-   - 🔑 Private key → stays on your computer
-   - 🔓 Public key → uploaded to GitHub
-2. GitHub checks your public key
-3. If it matches your private key → access granted
+> SSH is a "set it once, forget it" solution.
 
-No passwords are sent over the internet.
+<br><br><br><br><br>
 
----
+## How SSH Works (Very Simplified)
 
-## Step-by-Step: Set Up SSH with GitHub
+SSH uses two keys.
 
-### 1️⃣ Generate an SSH Key
+### Private Key
+
+- Stays on your computer.
+
+- Never share it.
+
+### Public Key
+
+- Uploaded to GitHub.
+
+- GitHub uses it to recognize you.
+
+<br>
+
+When the keys match, GitHub allows access.
+
+That's all you need to know for now.
+
+<br><br><br><br><br>
+
+## Step 1: Generate an SSH Key
+
+Run:
 
 ```bash
 ssh-keygen -t ed25519 -C "your@email.com"
-````
+```
 
-* Press **Enter** to accept default location
-* You may optionally set a passphrase (recommended)
+Press **Enter** to accept the default location.
+
+You may optionally set a passphrase.
 
 This creates:
 
-* `~/.ssh/id_ed25519` (private key)
-* `~/.ssh/id_ed25519.pub` (public key)
+```text
+~/.ssh/id_ed25519
+~/.ssh/id_ed25519.pub
+```
 
----
+<br><br><br>
 
-### 2️⃣ Copy Your Public Key
+- `id_ed25519` → Private key
+- `id_ed25519.pub` → Public key
+
+Never share the private key.
+
+<br><br><br><br><br>
+
+## Step 2: Copy Your Public Key
+
+View the public key:
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Copy the entire output (starts with `ssh-ed25519`).
+Copy the entire output.
 
----
+It should start with:
 
-### 3️⃣ Add the Key to GitHub
+```text
+ssh-ed25519 ...
+```
 
-1. Go to **GitHub → Settings**
-2. Open **SSH and GPG keys**
-3. Click **New SSH key**
-4. Paste your public key
-5. Save
+<br><br><br><br><br>
 
----
+## Step 3: Add the Key to GitHub
 
-### 4️⃣ Test the Connection
+1. Open GitHub
+2. Go to **Settings**
+3. Select **SSH and GPG keys**
+4. Click **New SSH key**
+5. Paste the public key
+6. Save
+
+GitHub now knows how to identify your computer.
+
+<br><br><br><br><br>
+
+## Step 4: Test the Connection
+
+Run:
 
 ```bash
 ssh -T git@github.com
 ```
 
-If successful, you’ll see a message like:
+If everything works, you'll see something similar to:
 
-> Hi `username`! You've successfully authenticated.
-
----
-
-## Switch an Existing Repository to SSH
-
-If your repo is currently using HTTPS, change it to SSH:
-
-```bash
-git remote set-url origin git@github.com:USERNAME/REPO.git
+```text
+Hi username! You've successfully authenticated.
 ```
 
-Verify:
+🎉 Your SSH connection is ready.
+
+<br><br><br><br><br>
+
+## Switching an Existing Repository to SSH
+
+Suppose your repository currently uses HTTPS.
+
+You can switch it to SSH:
+
+```bash
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+```
+
+Verify the change:
 
 ```bash
 git remote -v
 ```
 
----
+You should now see:
 
-## 🎯 Result
-
-From now on:
-
-* `git push`
-* `git pull`
-* `git fetch`
-
-👉 **No passwords. No tokens. Just works.**
-
----
-
-## Quick Recap
-
-* HTTPS → uses username + access token
-* SSH → uses key-based authentication
-* SSH is more secure and convenient
-* Setup once, use forever
-
----
-
-## What’s Next?
-
-Next, you’ll learn:
-
-* Forking repositories
-* Contributing to open source
-* Handling merge conflicts
-
-➡️ You’re now using GitHub like a pro 🚀
-
+```text
+origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
+origin  git@github.com:USERNAME/REPOSITORY.git (push)
 ```
 
----
+<br><br><br><br><br>
 
-### Why this version is better
-- Correctly explains **PAT vs password**
-- Clear HTTPS vs SSH comparison
-- Explains *how SSH actually works*
-- Safer mental model for beginners
-- Professional but simple tone
-- Perfect continuity with your previous lessons
+## Success 🎉
 
-If you want next:
-- A **common SSH errors & fixes** section
-- SSH key management for **multiple GitHub accounts**
-- Student **hands-on exercise** for this lesson
+Before SSH:
+
+```text
+git push
+    ↓
+Authenticate
 ```
+
+After SSH:
+
+```text
+git push
+    ↓
+Done
+```
+
+The same applies to:
+
+- `git pull`
+- `git fetch`
+
+No passwords.
+
+No access tokens.
+
+Just Git.
