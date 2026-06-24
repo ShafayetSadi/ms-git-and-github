@@ -1,53 +1,107 @@
 ---
-title: "Build a Small Project with Git"
-description: "Build a tiny CLI guessing game and track its progress using Git commits."
+title: "Building Our First Project with Git"
+description: "Create a simple guessing game and make your first meaningful project commit."
 keywords:
   - Git
   - Project
   - Commit
-  - CLI
+  - Version Control
+  - Missing Semester
   - Shafayet Sadi
 ---
 
-## Goal
+## From Commands to a Real Project
 
-By the end of this section, you will have:
+So far, we have been learning Git commands in isolation.
 
-- A real project folder (not random Git commands)
-- A Git repository with meaningful commits
-- A working CLI program
-- Experience with a simple, real Git workflow
+Now it's time to use Git the way developers actually use it:
 
-## Project Overview
+```text
+Create Project
+    ↓
+Write Code
+    ↓
+Commit Changes
+    ↓
+Improve Project
+    ↓
+Commit Again
+```
 
-We will build a simple number guessing game:
+By the end of this lesson, you will have:
 
-- The program picks a random number
-- The user guesses
-- The program tells whether the guess is correct
+- A real project repository
+- A working program
+- Your first meaningful project commit
+- A foundation for the next lessons
 
-## Step 1: Project Setup
+<br><br><br><br><br>
 
-Create the project structure and initialize Git:
+## The Project
+
+We will build a small command-line number guessing game.
+
+The rules are simple:
+
+1. The computer picks a random number
+2. The user makes a guess
+3. The program tells whether the guess is correct
+
+The goal is not to build a perfect game.
+
+The goal is to practice Git while building something real.
+
+<br><br><br><br><br>
+
+## Step 1: Create the Project
+
+Create a project folder:
 
 ```bash
 mkdir cli-guess-game
 cd cli-guess-game
+```
+
+Create some basic files:
+
+```bash
 mkdir src
+touch README.md
+```
+
+Initialize Git:
+
+```bash
 git init
 ```
 
 Check the folder:
 
 ```bash
-ls -al
+ls -la
 ```
 
-You should see a `.git` directory - that means Git is active.
+You should see:
 
-## Step 2: Create the Program (Python)
+```text
+.git/
+README.md
+src/
+```
 
-Create `src/main.py` and add the following code:
+📌 The presence of `.git` means this folder is now a Git repository.
+
+<br><br><br><br><br>
+
+## Step 2: Create Version 1 of the Game
+
+Create:
+
+```text
+src/main.py
+```
+
+Add the following code:
 
 ```python
 import random
@@ -62,91 +116,149 @@ else:
     print("Wrong! The number was", number)
 ```
 
+<br><br><br>
+
 Run the program:
 
 ```bash
 python3 src/main.py
 ```
 
-If it runs, you are ready to commit.
+Example:
 
-## Step 3: Version 1 - First Commit (Bare Minimum)
+```text
+Guess a number between 1 and 10: 7
+Wrong! The number was 3
+```
 
-Before committing, check Git's status:
+If the program runs successfully, we are ready to save Version 1.
+
+<br><br><br><br><br>
+
+## Step 3: Check Git's Status
+
+Ask Git what it sees:
 
 ```bash
 git status
 ```
 
-Stage the file:
+You should notice:
+
+```text
+README.md
+src/main.py
+```
+
+are currently untracked.
+
+Git sees them, but Git is not tracking them yet.
+
+<br><br><br><br><br>
+
+## Step 4: Create the First Project Commit
+
+Stage the project files:
 
 ```bash
-git add src/main.py
+git add README.md src/main.py
 ```
+
+Verify:
+
+```bash
+git status
+```
+
+You should now see that the files are staged.
+
+<br><br><br>
 
 Create your first commit:
 
 ```bash
-git commit -m "Initial version: basic guessing game"
+git commit -m "Create initial guessing game"
 ```
 
-View commit history:
+🎉 Congratulations!
+
+You have just created the first saved version of your project.
+
+📌 A commit is not just a backup—it is a named checkpoint in your project's history.
+
+<br><br><br><br><br>
+
+## Step 5: View the History
+
+Check the project's history:
 
 ```bash
 git log --oneline
 ```
 
-## Notes and Tips
+You should see something similar to:
 
-- If `python3` does not work, try `python src/main.py`.
-- Commit messages should describe what changed.
-- Small commits are better than one big commit.
-
-## C Version (If You Do Not Know Python)
-
-If you want to follow this project in C instead, use `src/main.c` and commit that file. The Git steps are identical.
-
-Create `src/main.c`:
-
-```c
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-int main(void) {
-    int number;
-    int guess;
-
-    srand((unsigned)time(NULL));
-    number = (rand() % 10) + 1;
-
-    printf("Guess a number between 1 and 10: ");
-    if (scanf("%d", &guess) != 1) {
-        printf("Invalid input.\n");
-        return 1;
-    }
-
-    if (guess == number) {
-        printf("Correct!\n");
-    } else {
-        printf("Wrong! The number was %d\n", number);
-    }
-
-    return 0;
-}
+```text
+a1b2c3d Create initial guessing game
 ```
 
-Compile and run:
+Right now, there is only one commit.
 
-```bash
-gcc -std=c11 -Wall -Wextra -O2 -o guess src/main.c
-./guess
+In the next lessons, we will continue improving the project and adding more commits.
+
+Over time, this history will grow.
+
+<br><br><br><br><br>
+
+## Understanding What Just Happened
+
+A few minutes ago, this project did not exist.
+
+Now Git has:
+
+- A repository
+- A working program
+- A saved snapshot
+- A project history
+
+```mermaid
+flowchart LR
+    A[Create Files]
+    B[git add]
+    C[git commit]
+    D[Project History]
+
+    A --> B --> C --> D
 ```
 
-Then commit `src/main.c` (instead of `src/main.py`):
+This is the core workflow you will repeat throughout your development career.
 
-```bash
-git add src/main.c
-git commit -m "Initial version: basic guessing game"
+<br><br><br><br><br>
+
+## Don't Worry About the Code
+
+The guessing game itself is not important.
+
+You can follow along using:
+
+- Python
+- C
+- C++
+- Java
+- Any other language you already know
+
+The Git workflow remains exactly the same.
+
+What matters is learning to:
+
+```text
+Build
+    ↓
+Commit
+    ↓
+Improve
+    ↓
+Commit Again
 ```
 
+That is how real projects evolve.
