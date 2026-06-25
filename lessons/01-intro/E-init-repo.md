@@ -14,7 +14,7 @@ A **Git repository (repo)** is simply a **project folder that Git is tracking**.
 
 Once a folder becomes a Git repository:
 
-- Git can track files inside it
+- Git can track changes to files inside it
 - Git remembers changes you save
 - Git builds a history over time
 
@@ -42,13 +42,28 @@ Let’s create a new project folder and turn it into a Git repository.
 - You should see a message saying something like:
 
   ```bash
-  Initialized empty Git repository
+  ➜  ms-git git init
+  Initialized empty Git repository in /shafayetsadi/ms-git/.git/
+  ➜  ms-git git:(main)
   ```
+
+<br><br><br>
 
 - Run `ls -la` to see the hidden `.git` folder:
 
   ```bash
   ls -la
+  ```
+
+- You should see the `.git` folder listed:
+
+  ```bash
+  ➜  ms-git git:(main) ls -la
+  total 12
+  drwxrwxr-x  3 shafayetsadi shafayetsadi 4096 Jun 25 09:12 .
+  drwxr-xr-x 82 shafayetsadi shafayetsadi 4096 Jun 25 09:13 ..
+  drwxrwxr-x  7 shafayetsadi shafayetsadi 4096 Jun 25 09:12 .git
+  ➜  ms-git git:(main)
   ```
 
 <br><br><br><br><br>
@@ -76,65 +91,77 @@ This folder stores:
 - Create a file and add some content:
 
   ```bash
-  touch main.py
-  echo "print('Hello, Git!')" > main.py
+  touch todo.txt
+  echo "Buy groceries" > todo.txt
+
+  cat todo.txt
   ```
 
 - Check Git’s status:
 
   ```bash
-  git status
+  ➜  ms-git git:(main) git status
+  On branch main
+
+  No commits yet
+
+  Untracked files:
+          todo.txt
+
+  nothing added to commit but untracked files present
+  ➜  ms-git git:(main)
   ```
 
-- Git will tell you:
-
-  - `main.py` is **untracked**
-  - Git sees it, but is not tracking it yet
+> Git sees the file, but is not tracking it yet
 
 <br><br><br>
 
 ### Stage the File
 
-- To add `main.py` to the staging area:
+- To add `todo.txt` to the staging area:
 
   ```bash
-  git add main.py
+  git add todo.txt
   ```
 
 - Check Git's status again:
 
   ```bash
-  git status
+  ➜  ms-git git:(main) ✗ git status
+  On branch main
+
+  No commits yet
+
+  Changes to be committed:
+          new file:   todo.txt
+
+  ➜  ms-git git:(main) ✗
   ```
 
-- Git will tell you:
-  - `main.py` is **staged**
-  - It's ready to be saved
-
-> Now `main.py` is **staged** — ready to be saved.
+> So, `todo.txt` is in the **staging area** — ready to be saved.
 
 <br><br><br>
 
 ### Make Your First Commit
 
-- To save `main.py` to the repository:
+- To save `todo.txt` to the repository:
 
   ```bash
-  git commit -m "Initial commit"
+  git commit -m "Create initial todo list"
   ```
 
 - Run `git status` again to confirm:
 
   ```bash
-  git status
+  ➜  ms-git git:(main) git status
+  On branch main
+  nothing to commit, working tree clean
+  ➜  ms-git git:(main)
   ```
 
-- Git will tell you:
-  - `main.py` is no longer **staged**
-  - It's been saved to the repository
+This means every change has been saved in a commit.
 
 🎉 Congratulations!
-You just created your **first version** of the project.
 
 > This commit is a snapshot of your project at this moment in time.
 
@@ -150,7 +177,7 @@ flowchart LR
     ADD([git add])
     SA[Staging Area]
     COMMIT([git commit])
-    REPO[Repository]
+    REPO[Repository History]
 
     WD --> ADD --> SA --> COMMIT --> REPO
 ```
@@ -163,8 +190,7 @@ flowchart LR
 
 This is your actual project folder:
 
-- where you write code
-- where you edit files
+- where you create and edit files
 
 Any change you make starts here.
 
@@ -186,10 +212,9 @@ git add file_name
 
 ## Repository
 
-This is Git’s memory:
+This is Git’s memory
 
-- every commit lives here
-- nothing is lost unless you delete history
+> every commit is stored here as part of your project's history
 
 When you run:
 
@@ -203,14 +228,15 @@ Git takes everything from the staging area and stores it permanently.
 
 ## Key Terms (Keep These in Mind)
 
+- **Working directory:** Your current files and edits
+- **Staging area:** The place where changes wait before being committed
 - **Repository (repo):** A project folder tracked by Git
 - **Commit:** A saved snapshot of the entire project at a point in time
-- **Working directory:** Your current files and edits
-
-- **Staging area:** The place where changes wait before being committed
-
 - **Tracked file:** A file Git knows about
-
 - **Untracked file:** A file Git sees but is not tracking yet
 
 You don’t need to memorize these — you’ll use them repeatedly.
+
+```
+
+```
