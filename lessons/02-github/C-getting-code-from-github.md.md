@@ -12,7 +12,7 @@ keywords:
 
 ## Clone vs Pull
 
-There are two common situations when working with GitHub.
+When working with GitHub, you'll usually find yourself in one of these two situations.
 
 <br><br><br>
 
@@ -75,6 +75,8 @@ Git will:
 - Create a local repository
 - Automatically connect it to GitHub
 
+📌 Public repositories can usually be cloned without authentication. Private repositories require permission.
+
 <br><br><br>
 
 After cloning:
@@ -84,6 +86,8 @@ cd REPOSITORY
 ```
 
 You are now ready to start working.
+
+You can edit files, create commits, and push changes just like any other Git repository.
 
 📌 Cloning gives you much more than just the files — it gives you the complete Git repository and its history.
 
@@ -102,8 +106,6 @@ git remote add origin ...
 Notice that we did **not** run that command when cloning.
 
 Why?
-
-<br><br><br>
 
 Because Git automatically creates the `origin` remote when cloning a repository.
 
@@ -152,17 +154,10 @@ When working with other people, a common workflow looks like this:
 
 ```mermaid
 flowchart TD
-    A[git pull] --> B[Make Changes]
+    A[git pull] --> B[Make Changes, Run Tests]
     B --> C[git add]
     C --> D[git commit]
     D --> E[git push]
 ```
 
-In simple terms:
-
-1. Pull the latest changes
-2. Make your changes
-3. Create a commit
-4. Push your commits
-
-Following this habit helps prevent many common Git problems.
+Following this workflow helps keep your local repository up to date and reduces the chance of merge conflicts when collaborating with others.

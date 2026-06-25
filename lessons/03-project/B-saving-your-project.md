@@ -22,6 +22,8 @@ a1b2c3d Create initial guessing game
 
 Real software is never finished after the first commit.
 
+<br><br><br>
+
 Developers continuously:
 
 ```text
@@ -111,7 +113,9 @@ git diff
 
 Git shows exactly what changed since the previous commit.
 
-📌 Use `git diff` whenever you want to review your work before committing.
+📌 Use `git diff` whenever you want to review your work before staging.
+
+> After running git add, git diff no longer shows those staged changes. You can still view them with `git diff --staged`.
 
 <br><br><br>
 
@@ -237,13 +241,10 @@ flowchart LR
     A --> B --> C --> D --> E
 ```
 
-You started with Version 1.
-
-Then you improved it.
-
-Then you improved it again.
-
-And Git recorded every step along the way.
+- You started with Version 1.
+- Then you improved it.
+- Then you improved it again.
+- And Git recorded every step along the way.
 
 That is the real power of commits.
 

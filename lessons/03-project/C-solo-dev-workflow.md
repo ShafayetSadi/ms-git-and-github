@@ -15,16 +15,6 @@ Many beginners think experienced developers use complicated Git commands all day
 
 In reality, most developers repeat the same simple workflow:
 
-```text
-Make Change
-    ↓
-Test It
-    ↓
-Commit It
-    ↓
-Repeat
-```
-
 A good workflow is not about being clever.
 
 It's about being consistent.
@@ -44,16 +34,16 @@ Open Project
     ↓
 Make Changes
     ↓
-Run Program
+Run/Test
     ↓
-Commit Changes
+git add
     ↓
-Continue Working
+git commit
+    ↓
+Repeat
 ```
 
-That's it.
-
-Most days are just variations of this loop.
+That's it. Most development sessions are simply variations of this loop.
 
 <br><br><br><br><br>
 
@@ -94,38 +84,15 @@ Small commits are easier to:
 
 <br><br><br><br><br>
 
-## A Typical Example
+## One Idea Per Commit
 
-Suppose you want to improve the guessing game.
-
-### Change 1
-
-Improve the game's messages.
+As you improve your project, create one commit for each logical change. For example:
 
 ```bash
-git add src/main.py
 git commit -m "Improve game messages"
-```
 
-<br><br><br>
-
-### Change 2
-
-Add score tracking.
-
-```bash
-git add src/main.py
 git commit -m "Add score tracking"
-```
 
-<br><br><br>
-
-### Change 3
-
-Improve input validation.
-
-```bash
-git add src/main.py
 git commit -m "Improve input validation"
 ```
 
@@ -167,44 +134,17 @@ Which history would you rather have?
 
 Start commit messages with a verb.
 
-For example:
-
+```text
 - Add
 - Fix
 - Remove
 - Improve
 - Refactor
 - Rename
-
-Examples:
-
-```text
-Add replay option
-Fix score calculation
-Remove unused code
-Refactor game loop
 ```
 
-This simple habit makes commit history much easier to read.
+This simple habit makes your project's history much easier to read.
 
 <br><br><br><br><br>
 
-## The Workflow to Remember
-
-When working on your own projects:
-
-```text
-Make Change
-    ↓
-Run Program
-    ↓
-Commit
-    ↓
-Repeat
-```
-
-Don't wait until the project is finished.
-
-Commit as the project evolves.
-
-Each commit becomes a checkpoint in your journey.
+You're now ready to practice this workflow on your own. In the homework, you'll build a small project and apply these habits from start to finish.

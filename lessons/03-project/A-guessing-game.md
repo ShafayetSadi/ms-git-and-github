@@ -28,13 +28,6 @@ Improve Project
 Commit Again
 ```
 
-By the end of this lesson, you will have:
-
-- A real project repository
-- A working program
-- Your first meaningful project commit
-- A foundation for the next lessons
-
 <br><br><br><br><br>
 
 ## The Project
@@ -245,7 +238,7 @@ You can follow along using:
 - C
 - C++
 - Java
-- Any other language you already know
+- Any programming language you already know.
 
 The Git workflow remains exactly the same.
 
