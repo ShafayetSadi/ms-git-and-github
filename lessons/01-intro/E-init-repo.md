@@ -236,7 +236,3 @@ Git takes everything from the staging area and stores it permanently.
 - **Untracked file:** A file Git sees but is not tracking yet
 
 You don’t need to memorize these — you’ll use them repeatedly.
-
-```
-
-```

@@ -15,10 +15,14 @@ keywords:
 
 ```mermaid
 flowchart LR
-    A[Edit files] --> B[git status]
-    B --> C[git add]
-    C --> D[git commit]
-    D --> E[git log]
+    A[Edit File]
+    B[git status]
+    C[git add]
+    D[git commit]
+    E[Repository History]
+    F[git log]
+
+    A --> B --> C --> D --> E --> F
 ```
 
 - As a developer, you will repeat this cycle many times every day.
@@ -31,86 +35,72 @@ Let's continue from the repository we created in the previous lesson.
 
 <br><br><br>
 
-### Step 1: Modify a File
-
-Add another line to `main.py`:
+- Add another task to `todo.txt`:
 
 ```bash
-echo "print('Learning Git!')" >> main.py
+echo "Complete Git assignment" >> todo.txt
 ```
 
-Now the file has changed.
+- See what has changed
+
+```bash
+git diff
+```
 
 <br><br><br>
 
-### Step 2: Check the Status
-
-Ask Git what changed:
+- Check Git Status
 
 ```bash
-git status
-```
-
-You should see something similar to:
-
-```text
+➜  ms-git git:(main) ✗ git status
+On branch main
 Changes not staged for commit:
-  modified: main.py
+        modified:   todo.txt
+
+no changes added to commit
+➜  ms-git git:(main) ✗
 ```
 
 📌 Git sees the change, but it is not ready to be committed yet.
 
 <br><br><br>
 
-### Step 3: Stage the Change
-
-Tell Git you want to include the change in the next commit:
+- Stage the Change
 
 ```bash
-git add main.py
+git add todo.txt
 ```
 
-Check the status again:
+- Check the status again:
 
 ```bash
-git status
-```
-
-You should see something similar to:
-
-```text
+➜  ms-git git:(main) ✗ git status
+On branch main
 Changes to be committed:
-  modified: main.py
+        modified:   todo.txt
+
+➜  ms-git git:(main) ✗
 ```
 
 📌 This moves changes from the working directory to the staging area.
 
 <br><br><br>
 
-### Step 4: Create a Commit
-
-Save the staged change:
+- Create another commit
 
 ```bash
-git commit -m "Add another print statement"
+git commit -m "Add assignment todo"
+
+cat todo.txt
 ```
 
-This creates a new snapshot of your project.
-
-<br><br><br>
-
-### Step 5: Verify Everything
-
-Check the status one more time:
+- Verify Everything
 
 ```bash
-git status
-```
-
-You should see:
-
-```text
+➜  ms-git git:(main) git status
+On branch main
 nothing to commit, working tree clean
+➜  ms-git git:(main)
 ```
 
 📌 Your changes are now safely stored in Git history.
@@ -119,7 +109,7 @@ nothing to commit, working tree clean
 
 ## Viewing History
 
-Git stores commits in a timeline called the project history.
+Git stores every commit in your project's history.
 
 To view the history:
 
@@ -134,19 +124,34 @@ This shows:
 - date
 - commit messages
 
+Example: `git log` will display something like this:
+
+```bash
+commit f157ead349e0dac2c244e2d3158169c9706dbb06 (HEAD -> main)
+Author: Shafayetul Huda Sadi <shafayet.sadi@gmail.com>
+Date:   Thu Jun 25 10:50:54 2026 +0600
+
+    Add assignment todo
+
+commit d0680cc7f5ae7590c69d7bdcdfb05bcd502c85f4
+Author: Shafayetul Huda Sadi <shafayet.sadi@gmail.com>
+Date:   Thu Jun 25 10:43:55 2026 +0600
+
+    Create initial todo list
+(END)
+```
+
 <br><br><br>
 
-### A shorter version
+- A shorter version
 
 ```bash
 git log --oneline
 ```
 
-Example:
-
-```text
-8a7c123 Add another print statement
-2b9d456 Initial commit
+```bash
+f157ead (HEAD -> main) Add assignment todo
+d0680cc Create initial todo list
 ```
 
 - Each line represents a snapshot in your project's history.
@@ -168,12 +173,24 @@ Example:
 
 <br><br><br>
 
+<br><br><br>
+
+### git diff
+
+- Shows the differences between your working directory and the staging area.
+
+```bash
+git diff
+```
+
+- Use it to review your changes before staging them.
+
 ### git add
 
 - Moves changes from the **working directory** to the **staging area**.
 
   ```bash
-  git add main.py
+  git add todo.txt
   ```
 
 - Think of it as selecting what you want to save next.
@@ -185,7 +202,7 @@ Example:
 - Creates a snapshot from everything currently staged.
 
 ```bash
-git commit -m "Add another print statement"
+git commit -m "Add assignment todo"
 ```
 
 - Think of a commit as pressing **Save Game** in a video game.
@@ -210,8 +227,16 @@ git log --oneline
 
 Git does not automatically create history.
 
-- Editing a file is not enough
-- Saving a file is not enough
-- Only a commit creates a new snapshot
+```text
+Edit File
+    ↓
+Save File
+    ↓
+Still only on your computer
+    ↓
+git commit
+    ↓
+Saved in Git history
+```
 
 > If you never commit your work, Git has nothing to restore later.
