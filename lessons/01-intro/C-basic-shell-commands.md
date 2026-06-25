@@ -50,11 +50,13 @@ If you are using Windows, you can follow along using:
 | `rm file`    | Remove a file              |
 | `clear`      | Clear the terminal screen  |
 
+📌 You can also press `Ctrl + L` in most terminals to clear the screen.
+
 <br><br><br><br><br>
 
 ## Moving Around Directories
 
-Before using Git, you should always know where you are.
+Before using Git, it's important to know which directory you're currently in.
 
 - Show Current Directory
 
@@ -135,6 +137,8 @@ ls
 
 echo "Hello, World!" >> README.md
 cat README.md
+
+pwd
 ```
 
 Now you know the basics of the shell! Let's move on to Git.
