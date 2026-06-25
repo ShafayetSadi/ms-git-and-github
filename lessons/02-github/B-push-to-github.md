@@ -43,7 +43,9 @@ flowchart LR
 
 ## Let's Put Our Project Online
 
-We will use the repository created in the previous lessons.
+We will use the local repository created in the previous lessons.
+
+Before we can push anything, we need an empty repository on GitHub to receive our local repository.
 
 <br><br><br><br><br>
 
@@ -61,7 +63,7 @@ When creating the repository:
   - .gitignore
   - License
 
-📌 We already have a repository locally. We want GitHub to start empty.
+📌 We already have files and commits in our local repository. We want to upload them to an empty repository on GitHub.
 
 <br><br><br><br><br>
 
@@ -85,7 +87,7 @@ with your own values.
 For example:
 
 ```bash
-git remote add origin https://github.com/USERNAME/ms-git.git
+git remote add origin https://github.com/YOUR-USERNAME/ms-git.git
 ```
 
 <br><br><br>
@@ -95,6 +97,8 @@ git remote add origin https://github.com/USERNAME/ms-git.git
 Git can communicate with repositories hosted elsewhere.
 
 These connections are called **remotes**.
+
+A single repository can have multiple remotes, but most projects only use one.
 
 By convention, the primary remote is usually named:
 
@@ -123,15 +127,17 @@ git remote -v
 You should see something similar to:
 
 ```text
-origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
-origin  https://github.com/USERNAME/REPOSITORY.git (push)
+origin  https://github.com/YOUR-USERNAME/REPOSITORY-NAME.git (fetch)
+origin  https://github.com/YOUR-USERNAME/REPOSITORY-NAME.git (push)
 ```
+
+From now on, Git knows where your repository lives.
 
 <br><br><br><br><br>
 
 ## Step 3: Rename the Branch to main
 
-GitHub uses `main` as the default branch name.
+To keep our local branch name consistent with GitHub, we'll rename it to main.
 
 Run:
 
@@ -163,11 +169,13 @@ After a successful push, you may see output similar to:
 Enumerating objects: ...
 Counting objects: ...
 Writing objects: ...
-To https://github.com/USERNAME/REPOSITORY.git
+To https://github.com/YOUR-USERNAME/REPOSITORY-NAME.git
  * [new branch]      main -> main
 ```
 
-📌 Seeing output like this means the push was successful.
+Seeing output like this means the push was successful.
+
+📌 If you're using SSH, you won't be asked to authenticate after the initial SSH setup.
 
 <br><br><br><br><br>
 
@@ -179,7 +187,7 @@ You should now see:
 
 - Your files
 - Your commits
-- Your project online
+- Your repository on GitHub
 
 🎉 Congratulations!
 
@@ -195,16 +203,13 @@ The first push requires a little setup.
 
 After that, your workflow becomes much simpler.
 
-Make changes:
-
-```bash
-git add .
-git commit -m "Add new feature"
-```
-
-Then upload them:
-
-```bash
+```text
+Edit Files
+    ↓
+git add
+    ↓
+git commit
+    ↓
 git push
 ```
 
@@ -228,7 +233,7 @@ git add
 git commit
 ```
 
-only updates your local repository.
+only saves changes to your local repository.
 
 To send those commits to GitHub, you must also run:
 
