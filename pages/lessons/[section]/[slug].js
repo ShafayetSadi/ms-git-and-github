@@ -109,8 +109,8 @@ export default function LessonSlug({ post }) {
                     secondaryBorderColor: "#3b82f6",
                     secondaryTextColor: "#111827",
                     lineColor: "#94a3b8",
-                    edgeLabelBackground: "#1f2937",
-                    tertiaryColor: "#1e293b",
+                    edgeLabelBackground: "#e5e7eb",
+                    tertiaryColor: "#e5e7eb",
                     fontFamily: '"Open Sans", sans-serif',
                 },
             });
