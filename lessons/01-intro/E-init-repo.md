@@ -171,16 +171,8 @@ This means every change has been saved in a commit.
 
 To understand Git, you need to understand **three places**.
 
-```mermaid
-flowchart LR
-    WD[Working Directory]
-    ADD([git add])
-    SA[Staging Area]
-    COMMIT([git commit])
-    REPO[Repository History]
-
-    WD --> ADD --> SA --> COMMIT --> REPO
-```
+<img src="/ms-git-and-github/svgs/git_flow.svg"
+ alt="Git flow diagram" width="400" />
 
 📌 This mental model will explain **almost every Git command** you’ll learn.
 
