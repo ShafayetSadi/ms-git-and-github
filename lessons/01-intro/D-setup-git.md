@@ -52,7 +52,9 @@ git --version
 Example output:
 
 ```bash
-git version X.Y.Z
+➜  ~ git --version
+git version 2.43.0
+➜  ~
 ```
 
 If you see a version number, Git is installed correctly.
@@ -70,6 +72,8 @@ If you see a version number, Git is installed correctly.
 Before using Git, we must tell it **who you are**.
 
 Git records your name and email with every commit you make.
+
+Git does not verify that this name or email belongs to you—it simply records the information you provide.
 
 Run the following commands:
 
@@ -99,8 +103,11 @@ Replace these values with your own information.
 - You should see something like:
 
   ```text
-  John Doe
-  john@example.com
+  ➜  ~ git config user.name
+  Shafayetul Huda Sadi
+  ➜  ~ git config user.email
+  shafayet.sadi@gmail.com
+  ➜  ~
   ```
 
 - That means Git knows who you are.
@@ -111,7 +118,7 @@ To see all your Git configurations, run:
 git config --list
 ```
 
-📌 Use `q` to exit the `git config --list` output.
+📌 On some systems, Git may open the output in a pager. If that happens, press `q` to exit.
 
 <br><br><br><br><br>
 
@@ -140,7 +147,7 @@ Configuring Git helps you:
 
 - Identify who made each change
 - Understand project history clearly
-- Receive proper credit for your work
+- Ensure your commits are correctly attributed to you
 - Collaborate without confusion
 
 > Every commit tells a story — your name is part of that story.
