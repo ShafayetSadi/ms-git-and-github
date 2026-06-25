@@ -15,7 +15,7 @@ keywords:
 
 You can think of GitHub as:
 
-- A cloud backup for your Git projects
+- A place to host your Git repositories online
 - A collaboration platform for developers
 - A public portfolio that showcases your work
 
@@ -28,6 +28,8 @@ You can think of GitHub as:
 So far, everything we have done works entirely on our own computer.
 
 We created a repository, made commits, and viewed history without using GitHub at all.
+
+Everything we've done so far has been stored only on our own computer.
 
 That raises an important question:
 
@@ -69,7 +71,7 @@ This confusion is extremely common, so let's make it clear.
 - A website that hosts Git repositories
 - Stores repositories online
 - Makes sharing and collaboration easier
-- Requires internet access
+- Requires internet to synchronize with remote repositories
 
 <br><br><br>
 
@@ -101,10 +103,12 @@ When working with GitHub, you will frequently hear two terms:
 
 ```mermaid
 flowchart LR
-    LOCAL[Local Repository<br>On Your Computer]
-    REMOTE[Remote Repository<br>On GitHub]
+    LOCAL[Local Repository]
+    REMOTE[Remote Repository]
 
-    LOCAL <--> REMOTE
+    LOCAL -- git push --> REMOTE
+    REMOTE -- git pull --> LOCAL
+
 ```
 
 <br><br><br>
@@ -127,6 +131,8 @@ This is what we have been using so far.
 
 This is a copy of your repository hosted online.
 
+Your local repository and remote repository can be synchronized using Git commands.
+
 For this workshop, GitHub will be our remote repository.
 
 A remote repository allows you to:
@@ -145,9 +151,9 @@ A remote repository allows you to:
 As a student, GitHub can help you:
 
 - Store all your academic projects safely
+- Collaborate with teammates
 - Showcase hackathon and personal projects
 - Build a portfolio for internships and jobs
-- Collaborate with teammates
 - Learn industry-standard development workflows
 
 For many students, GitHub becomes their first professional portfolio.
@@ -167,4 +173,4 @@ It provides access to:
 
 👉 [GitHub Student Developer Pack](https://education.github.com/pack)
 
-You do not need to sign up right now. Just remember that it exists.
+You don't need to apply right now. Just remember that it exists—we'll mention it again later.
