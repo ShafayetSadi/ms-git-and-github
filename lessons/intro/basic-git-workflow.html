@@ -1,0 +1,171 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8" data-next-head=""/><meta name="viewport" content="width=device-width" data-next-head=""/><link rel="apple-touch-icon" sizes="180x180" href="/ms-git-and-github/images/apple-touch-icon.png" data-next-head=""/><link rel="icon" type="image/png" sizes="32x32" href="/ms-git-and-github/images/favicon-32x32.png" data-next-head=""/><link rel="icon" type="image/png" sizes="16x16" href="/ms-git-and-github/images/favicon-16x16.png" data-next-head=""/><link rel="icon" type="image/png" sizes="16x16" href="/ms-git-and-github/images/favicon-16x16.png" data-next-head=""/><link rel="icon" type="image/x-icon" href="/ms-git-and-github/images/favicon.ico" data-next-head=""/><title data-next-head="">Basic Git Workflow – Git and GitHub: A Hands-on Guide</title><meta name="description" content="Learn the core Git workflow used in everyday development." data-next-head=""/><meta name="keywords" content="Git,Commit,Version Control,Missing Semester,Shafayet Sadi" data-next-head=""/><meta name="og:description" content="Learn the core Git workflow used in everyday development." data-next-head=""/><meta name="og:title" content="Basic Git Workflow – Git and GitHub: A Hands-on Guide" data-next-head=""/><meta name="og:image" content="/ms-git-and-github/images/social-share-cover.jpg" data-next-head=""/><meta name="twitter:card" content="summary_large_image" data-next-head=""/><link data-next-font="size-adjust" rel="preconnect" href="/" crossorigin="anonymous"/><link rel="preload" href="/ms-git-and-github/_next/static/css/5b77a58073a85b34.css" as="style"/><link rel="stylesheet" href="/ms-git-and-github/_next/static/css/5b77a58073a85b34.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" noModule="" src="/ms-git-and-github/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/ms-git-and-github/_next/static/chunks/webpack-c303171a128ffd6b.js" defer=""></script><script src="/ms-git-and-github/_next/static/chunks/framework-4a99af1472046e21.js" defer=""></script><script src="/ms-git-and-github/_next/static/chunks/main-02fa07a9158f5f84.js" defer=""></script><script src="/ms-git-and-github/_next/static/chunks/pages/_app-50aabb8df6e0c861.js" defer=""></script><script src="/ms-git-and-github/_next/static/chunks/pages/lessons/%5Bsection%5D/%5Bslug%5D-3f527b8c7a151f04.js" defer=""></script><script src="/ms-git-and-github/_next/static/ovwA_t101dLhWVPpkXD2D/_buildManifest.js" defer=""></script><script src="/ms-git-and-github/_next/static/ovwA_t101dLhWVPpkXD2D/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div class="remix-app"><header class="navbar"><h1 class="navbar-brand"><a href="/ms-git-and-github">Git and GitHub: A Hands-on Guide</a></h1><div class="navbar-info"><a href="https://missing-semesters-ruet.github.io/missing-semester/" class="cta-btn">Missing Semesters</a></div></header><div class="content-container"><div class="main"><div class="lesson-container"><div class="lesson"><div class="lesson-content"><h2>The Daily Git Workflow</h2>
+<ul>
+<li>Almost all Git usage follows the same simple pattern:</li>
+</ul>
+<div class="mermaid">
+flowchart LR
+    A[Edit File]
+    B[git status]
+    C[git add]
+    D[git commit]
+    E[Repository History]
+    F[git log]
+
+    A --> B --> C --> D --> E --> F
+</div><ul>
+<li>As a developer, you will repeat this cycle many times every day.</li>
+</ul>
+<p><br><br><br><br><br></p>
+<h2>Let&#39;s Make Another Commit</h2>
+<p>Let&#39;s continue from the repository we created in the previous lesson.</p>
+<p><br><br><br></p>
+<ul>
+<li>Add another task to <code>todo.txt</code>:</li>
+</ul>
+<pre><code class="hljs language-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Complete Git assignment&quot;</span> &gt;&gt; todo.txt
+</code></pre><ul>
+<li>See what has changed</li>
+</ul>
+<pre><code class="hljs language-bash">git diff
+</code></pre><p><br><br><br></p>
+<ul>
+<li>Check Git Status</li>
+</ul>
+<pre><code class="hljs language-bash">➜  ms-git git:(main) ✗ git status
+On branch main
+Changes not staged <span class="hljs-keyword">for</span> commit:
+        modified:   todo.txt
+
+no changes added to commit
+➜  ms-git git:(main) ✗
+</code></pre><p>📌 Git sees the change, but it is not ready to be committed yet.</p>
+<p><br><br><br></p>
+<ul>
+<li>Stage the Change</li>
+</ul>
+<pre><code class="hljs language-bash">git add todo.txt
+</code></pre><ul>
+<li>Check the status again:</li>
+</ul>
+<pre><code class="hljs language-bash">➜  ms-git git:(main) ✗ git status
+On branch main
+Changes to be committed:
+        modified:   todo.txt
+
+➜  ms-git git:(main) ✗
+</code></pre><p>📌 This moves changes from the working directory to the staging area.</p>
+<p><br><br><br></p>
+<ul>
+<li>Create another commit</li>
+</ul>
+<pre><code class="hljs language-bash">git commit -m <span class="hljs-string">&quot;Add assignment todo&quot;</span>
+
+<span class="hljs-built_in">cat</span> todo.txt
+</code></pre><ul>
+<li>Verify Everything</li>
+</ul>
+<pre><code class="hljs language-bash">➜  ms-git git:(main) git status
+On branch main
+nothing to commit, working tree clean
+➜  ms-git git:(main)
+</code></pre><p>📌 Your changes are now safely stored in Git history.</p>
+<p><br><br><br><br><br></p>
+<h2>Viewing History</h2>
+<p>Git stores every commit in your project&#39;s history.</p>
+<p>To view the history:</p>
+<pre><code class="hljs language-bash">git <span class="hljs-built_in">log</span>
+</code></pre><p>This shows:</p>
+<ul>
+<li>commit IDs</li>
+<li>author</li>
+<li>date</li>
+<li>commit messages</li>
+</ul>
+<p>Example: <code>git log</code> will display something like this:</p>
+<pre><code class="hljs language-bash">commit f157ead349e0dac2c244e2d3158169c9706dbb06 (HEAD -&gt; main)
+Author: Shafayetul Huda Sadi &lt;shafayet.sadi@gmail.com&gt;
+Date:   Thu Jun 25 10:50:54 2026 +0600
+
+    Add assignment todo
+
+commit d0680cc7f5ae7590c69d7bdcdfb05bcd502c85f4
+Author: Shafayetul Huda Sadi &lt;shafayet.sadi@gmail.com&gt;
+Date:   Thu Jun 25 10:43:55 2026 +0600
+
+    Create initial todo list
+(END)
+</code></pre><p><br><br><br></p>
+<ul>
+<li>A shorter version</li>
+</ul>
+<pre><code class="hljs language-bash">git <span class="hljs-built_in">log</span> --oneline
+</code></pre><pre><code class="hljs language-bash">f157ead (HEAD -&gt; main) Add assignment todo
+d0680cc Create initial todo list
+</code></pre><ul>
+<li>Each line represents a snapshot in your project&#39;s history.</li>
+</ul>
+<p>📌 If Git opens the log in a pager, press <code>q</code> to exit.</p>
+<p><br><br><br><br><br></p>
+<h2>Understanding the Commands</h2>
+<p><br><br><br></p>
+<h3>git status</h3>
+<ul>
+<li>Shows the current state of your repository.</li>
+<li>Use it whenever you are unsure what Git is doing.</li>
+</ul>
+<p>📌 While learning Git, <code>git status</code> is your best friend.</p>
+<p><br><br><br></p>
+<p><br><br><br></p>
+<h3>git diff</h3>
+<ul>
+<li>Shows the differences between your working directory and the staging area.</li>
+</ul>
+<pre><code class="hljs language-bash">git diff
+</code></pre><ul>
+<li>Use it to review your changes before staging them.</li>
+</ul>
+<h3>git add</h3>
+<ul>
+<li><p>Moves changes from the <strong>working directory</strong> to the <strong>staging area</strong>.</p>
+<pre><code class="hljs language-bash">git add todo.txt
+</code></pre></li>
+<li><p>Think of it as selecting what you want to save next.</p>
+</li>
+</ul>
+<p><br><br><br></p>
+<h3>git commit</h3>
+<ul>
+<li>Creates a snapshot from everything currently staged.</li>
+</ul>
+<pre><code class="hljs language-bash">git commit -m <span class="hljs-string">&quot;Add assignment todo&quot;</span>
+</code></pre><ul>
+<li><p>Think of a commit as pressing <strong>Save Game</strong> in a video game.</p>
+</li>
+<li><p>If you never save, Git cannot take you back later.</p>
+</li>
+</ul>
+<p><br><br><br></p>
+<h3>git log</h3>
+<ul>
+<li>Shows the history of commits.</li>
+</ul>
+<pre><code class="hljs language-bash">git <span class="hljs-built_in">log</span> --oneline
+</code></pre><ul>
+<li>This lets you see how your project evolved over time.</li>
+</ul>
+<p><br><br><br><br><br></p>
+<h2>Important Reminder</h2>
+<p>Git does not automatically create history.</p>
+<pre><code class="hljs language-text">Edit File
+    ↓
+Save File
+    ↓
+Still only on your computer
+    ↓
+git commit
+    ↓
+Saved in Git history
+</code></pre><blockquote>
+<p>If you never commit your work, Git has nothing to restore later.</p>
+</blockquote>
+</div><div class="lesson-links"><a class="prev" href="/ms-git-and-github/lessons/intro/init-repo">← Previous</a><a class="next" href="/ms-git-and-github/lessons/github/intro-to-github">Next →</a></div></div><div class="details-bg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="154" height="154" viewBox="0 0 154 154"><defs><clipPath id="clip-path"><rect id="Rectangle_2238" data-name="Rectangle 2238" width="154" height="154" transform="translate(9467 350)" fill="#fff" stroke="#707070" stroke-width="1"></rect></clipPath><clipPath id="clip-corner-image-active"><rect width="154" height="154"></rect></clipPath></defs><g id="corner-image-active" clip-path="url(#clip-corner-image-active)"><g id="Corner-image-active-2" data-name="Corner-image-active" transform="translate(-9467 -350)" clip-path="url(#clip-path)"><path id="Subtraction_34" data-name="Subtraction 34" d="M-3857.365,1740.766h0l-7.07-7.07,12.89-12.89v14.142l-5.818,5.818Zm-14.142-14.142h0l-7.071-7.07,27.033-27.033v14.143l-19.96,19.96Zm-14.143-14.143h0l-7.07-7.069,41.175-41.175v14.142Zm-14.142-14.142h0l-7.07-7.069,55.317-55.317v14.142Zm-14.142-14.142h0l-7.07-7.069,69.459-69.459v14.142Zm-14.142-14.142h0l-7.07-7.069,76.739-76.739h6.862v7.28Zm-14.143-14.143h0l-7.07-7.069,62.6-62.6h14.142Zm-14.142-14.142h0l-7.07-7.069,48.454-48.454h14.142Zm-14.142-14.142h0l-7.07-7.069,34.312-34.312h14.142Zm-14.142-14.142h0l-7.07-7.069,20.17-20.17h14.142Zm-14.142-14.142h0l-7.071-7.071,6.027-6.027h14.144l-13.1,13.1Zm367.24-56.114v-.909l.455.455-.453.453Z" transform="translate(13472.546 -1236.766)" fill="var(--corner-fill)"></path></g></g></svg></div></div></div></div><footer class="footer"><ul class="socials"><li class="social"><a href="https://twitter.com/shafayet_sadi"><svg fill="none" height="100%" width="32" xmlns="http://www.w3.org/2000/svg" viewBox="0.254 0.25 500 451.95400000000006"><path d="M394.033.25h76.67L303.202 191.693l197.052 260.511h-154.29L225.118 294.205 86.844 452.204H10.127l179.16-204.77L.254.25H158.46l109.234 144.417zm-26.908 406.063h42.483L135.377 43.73h-45.59z" fill="var(--footer-icons)"></path></svg></a></li><li class="social"><a href="https://github.com/shafayetsadi"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"><defs><clipPath id="clip-github-social"><rect width="32" height="32"></rect></clipPath></defs><g id="github-social" clip-path="url(#clip-github-social)"><g id="Group_272" data-name="Group 272" transform="translate(13522.5 -6994)"><path id="Subtraction_33" data-name="Subtraction 33" d="M-24967.5,8041a15.9,15.9,0,0,1-11.312-4.688A15.893,15.893,0,0,1-24983.5,8025a15.893,15.893,0,0,1,4.689-11.315A15.894,15.894,0,0,1-24967.5,8009a15.894,15.894,0,0,1,11.313,4.686A15.893,15.893,0,0,1-24951.5,8025a15.893,15.893,0,0,1-4.689,11.313A15.9,15.9,0,0,1-24967.5,8041Zm-3.781-4.571h0v3.918h7.895v-6.665a1.836,1.836,0,0,0-1.2-1.718c5.1-.617,7.467-2.975,7.467-7.424a7.176,7.176,0,0,0-1.637-4.728,6.74,6.74,0,0,0,.275-1.812,4.34,4.34,0,0,0-.52-2.452.574.574,0,0,0-.359-.1c-1.061,0-3.465,1.411-3.936,1.694a16.644,16.644,0,0,0-4.2-.489,16.379,16.379,0,0,0-3.969.445c-.846-.5-2.91-1.649-3.859-1.649a.566.566,0,0,0-.354.095,4.3,4.3,0,0,0-.521,2.452,6.7,6.7,0,0,0,.244,1.718,7.346,7.346,0,0,0-1.6,4.822,7.263,7.263,0,0,0,1.533,4.985c1.193,1.359,3.115,2.165,5.871,2.464a1.826,1.826,0,0,0-1.129,1.693v.5h0l-.006,0a7.121,7.121,0,0,1-2.033.363,2.608,2.608,0,0,1-.965-.158,4.438,4.438,0,0,1-1.836-1.881,2.361,2.361,0,0,0-1.248-1.091,3.472,3.472,0,0,0-1.217-.3.584.584,0,0,0-.545.224.282.282,0,0,0,.027.367,1.875,1.875,0,0,0,.447.307,4.732,4.732,0,0,1,.561.355,10.726,10.726,0,0,1,1.682,2.755c.043.092.078.163.105.217a3.876,3.876,0,0,0,2.42,1.185,6.036,6.036,0,0,0,.607.025c.875,0,1.988-.124,2-.125Z" transform="translate(11461 -1015)" fill="var(--footer-icons)"></path><g id="Ellipse_670" data-name="Ellipse 670" transform="translate(-13522.5 6994)" fill="none" stroke="var(--footer-icons)" stroke-width="1"><circle cx="16" cy="16" r="16" stroke="none"></circle><circle cx="16" cy="16" r="15.5" fill="none"></circle></g></g></g></svg></a></li><li class="social"><a href="https://linkedin.com/in/shafayetsadi"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"><defs><clipPath id="clip-linkedin-social"><rect width="32" height="32"></rect></clipPath></defs><g id="linkedin-social" clip-path="url(#clip-linkedin-social)"><g id="Group_270" data-name="Group 270" transform="translate(-86.349 -633.073)"><path id="Path_375" data-name="Path 375" d="M115.789,633.073a2.324,2.324,0,0,1,1.682.676,2.194,2.194,0,0,1,.695,1.627V662.8a2.131,2.131,0,0,1-.695,1.609,2.314,2.314,0,0,1-1.646.659H88.69a2.307,2.307,0,0,1-1.646-.659,2.128,2.128,0,0,1-.695-1.609V635.376a2.19,2.19,0,0,1,.695-1.627,2.322,2.322,0,0,1,1.682-.676h27.063Zm-20.224,9.672a2.561,2.561,0,0,0,0-3.584,2.658,2.658,0,0,0-1.938-.712,2.724,2.724,0,0,0-1.957.712,2.371,2.371,0,0,0-.75,1.792,2.4,2.4,0,0,0,.731,1.792,2.605,2.605,0,0,0,1.9.713h.037A2.7,2.7,0,0,0,95.565,642.745ZM96,645.434H91.213V659.88H96Zm17.3,6.144a7.007,7.007,0,0,0-1.573-4.9,5.68,5.68,0,0,0-6.839-.769,5.663,5.663,0,0,0-1.426,1.573v-2.048H98.674q.036.841,0,7.717v6.728h4.791V651.8a3.592,3.592,0,0,1,.146-1.17,2.913,2.913,0,0,1,.878-1.206,2.429,2.429,0,0,1,1.609-.549,2.108,2.108,0,0,1,1.865.914,4.265,4.265,0,0,1,.549,2.341v7.752H113.3Z" fill="var(--footer-icons)"></path></g></g></svg></a></li><li class="social"><div class="terms"><p>Content Licensed Under CC-BY-NC-4.0</p><p>Code Samples and Exercises Licensed Under Apache 2.0</p><p>Site Designed by<!-- --> <a href="https://www.alexdanielson.com/">Alex Danielson</a></p></div></li></ul><div class="theme-icons"><button aria-label="Activate dark mode" title="Activate dark mode" class="theme-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="36px" height="100%" viewBox="0 -960 960 960" fill="var(--text-footer)" role="img"><title>Dark Mode Icon</title><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Z"></path></svg></button></div></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"attributes":{"title":"Basic Git Workflow","description":"Learn the core Git workflow used in everyday development.","keywords":["Git","Commit","Version Control","Missing Semester","Shafayet Sadi"]},"html":"\u003ch2\u003eThe Daily Git Workflow\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eAlmost all Git usage follows the same simple pattern:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdiv class=\"mermaid\"\u003e\nflowchart LR\n    A[Edit File]\n    B[git status]\n    C[git add]\n    D[git commit]\n    E[Repository History]\n    F[git log]\n\n    A --\u003e B --\u003e C --\u003e D --\u003e E --\u003e F\n\u003c/div\u003e\u003cul\u003e\n\u003cli\u003eAs a developer, you will repeat this cycle many times every day.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch2\u003eLet\u0026#39;s Make Another Commit\u003c/h2\u003e\n\u003cp\u003eLet\u0026#39;s continue from the repository we created in the previous lesson.\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eAdd another task to \u003ccode\u003etodo.txt\u003c/code\u003e:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003e\u003cspan class=\"hljs-built_in\"\u003eecho\u003c/span\u003e \u003cspan class=\"hljs-string\"\u003e\u0026quot;Complete Git assignment\u0026quot;\u003c/span\u003e \u0026gt;\u0026gt; todo.txt\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003eSee what has changed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003egit diff\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCheck Git Status\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003e➜  ms-git git:(main) ✗ git status\nOn branch main\nChanges not staged \u003cspan class=\"hljs-keyword\"\u003efor\u003c/span\u003e commit:\n        modified:   todo.txt\n\nno changes added to commit\n➜  ms-git git:(main) ✗\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e📌 Git sees the change, but it is not ready to be committed yet.\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eStage the Change\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003egit add todo.txt\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003eCheck the status again:\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003e➜  ms-git git:(main) ✗ git status\nOn branch main\nChanges to be committed:\n        modified:   todo.txt\n\n➜  ms-git git:(main) ✗\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e📌 This moves changes from the working directory to the staging area.\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCreate another commit\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003egit commit -m \u003cspan class=\"hljs-string\"\u003e\u0026quot;Add assignment todo\u0026quot;\u003c/span\u003e\n\n\u003cspan class=\"hljs-built_in\"\u003ecat\u003c/span\u003e todo.txt\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003eVerify Everything\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003e➜  ms-git git:(main) git status\nOn branch main\nnothing to commit, working tree clean\n➜  ms-git git:(main)\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e📌 Your changes are now safely stored in Git history.\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch2\u003eViewing History\u003c/h2\u003e\n\u003cp\u003eGit stores every commit in your project\u0026#39;s history.\u003c/p\u003e\n\u003cp\u003eTo view the history:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003egit \u003cspan class=\"hljs-built_in\"\u003elog\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eThis shows:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ecommit IDs\u003c/li\u003e\n\u003cli\u003eauthor\u003c/li\u003e\n\u003cli\u003edate\u003c/li\u003e\n\u003cli\u003ecommit messages\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eExample: \u003ccode\u003egit log\u003c/code\u003e will display something like this:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003ecommit f157ead349e0dac2c244e2d3158169c9706dbb06 (HEAD -\u0026gt; main)\nAuthor: Shafayetul Huda Sadi \u0026lt;shafayet.sadi@gmail.com\u0026gt;\nDate:   Thu Jun 25 10:50:54 2026 +0600\n\n    Add assignment todo\n\ncommit d0680cc7f5ae7590c69d7bdcdfb05bcd502c85f4\nAuthor: Shafayetul Huda Sadi \u0026lt;shafayet.sadi@gmail.com\u0026gt;\nDate:   Thu Jun 25 10:43:55 2026 +0600\n\n    Create initial todo list\n(END)\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eA shorter version\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003egit \u003cspan class=\"hljs-built_in\"\u003elog\u003c/span\u003e --oneline\n\u003c/code\u003e\u003c/pre\u003e\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003ef157ead (HEAD -\u0026gt; main) Add assignment todo\nd0680cc Create initial todo list\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003eEach line represents a snapshot in your project\u0026#39;s history.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e📌 If Git opens the log in a pager, press \u003ccode\u003eq\u003c/code\u003e to exit.\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch2\u003eUnderstanding the Commands\u003c/h2\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch3\u003egit status\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eShows the current state of your repository.\u003c/li\u003e\n\u003cli\u003eUse it whenever you are unsure what Git is doing.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e📌 While learning Git, \u003ccode\u003egit status\u003c/code\u003e is your best friend.\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch3\u003egit diff\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eShows the differences between your working directory and the staging area.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003egit diff\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003eUse it to review your changes before staging them.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003egit add\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cp\u003eMoves changes from the \u003cstrong\u003eworking directory\u003c/strong\u003e to the \u003cstrong\u003estaging area\u003c/strong\u003e.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003egit add todo.txt\n\u003c/code\u003e\u003c/pre\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003eThink of it as selecting what you want to save next.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch3\u003egit commit\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eCreates a snapshot from everything currently staged.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003egit commit -m \u003cspan class=\"hljs-string\"\u003e\u0026quot;Add assignment todo\u0026quot;\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003e\u003cp\u003eThink of a commit as pressing \u003cstrong\u003eSave Game\u003c/strong\u003e in a video game.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cp\u003eIf you never save, Git cannot take you back later.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch3\u003egit log\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eShows the history of commits.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-bash\"\u003egit \u003cspan class=\"hljs-built_in\"\u003elog\u003c/span\u003e --oneline\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003eThis lets you see how your project evolved over time.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch2\u003eImportant Reminder\u003c/h2\u003e\n\u003cp\u003eGit does not automatically create history.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003eEdit File\n    ↓\nSave File\n    ↓\nStill only on your computer\n    ↓\ngit commit\n    ↓\nSaved in Git history\n\u003c/code\u003e\u003c/pre\u003e\u003cblockquote\u003e\n\u003cp\u003eIf you never commit your work, Git has nothing to restore later.\u003c/p\u003e\n\u003c/blockquote\u003e\n","markdown":"\n## The Daily Git Workflow\n\n- Almost all Git usage follows the same simple pattern:\n\n```mermaid\nflowchart LR\n    A[Edit File]\n    B[git status]\n    C[git add]\n    D[git commit]\n    E[Repository History]\n    F[git log]\n\n    A --\u003e B --\u003e C --\u003e D --\u003e E --\u003e F\n```\n\n- As a developer, you will repeat this cycle many times every day.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n## Let's Make Another Commit\n\nLet's continue from the repository we created in the previous lesson.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n- Add another task to `todo.txt`:\n\n```bash\necho \"Complete Git assignment\" \u003e\u003e todo.txt\n```\n\n- See what has changed\n\n```bash\ngit diff\n```\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n- Check Git Status\n\n```bash\n➜  ms-git git:(main) ✗ git status\nOn branch main\nChanges not staged for commit:\n        modified:   todo.txt\n\nno changes added to commit\n➜  ms-git git:(main) ✗\n```\n\n📌 Git sees the change, but it is not ready to be committed yet.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n- Stage the Change\n\n```bash\ngit add todo.txt\n```\n\n- Check the status again:\n\n```bash\n➜  ms-git git:(main) ✗ git status\nOn branch main\nChanges to be committed:\n        modified:   todo.txt\n\n➜  ms-git git:(main) ✗\n```\n\n📌 This moves changes from the working directory to the staging area.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n- Create another commit\n\n```bash\ngit commit -m \"Add assignment todo\"\n\ncat todo.txt\n```\n\n- Verify Everything\n\n```bash\n➜  ms-git git:(main) git status\nOn branch main\nnothing to commit, working tree clean\n➜  ms-git git:(main)\n```\n\n📌 Your changes are now safely stored in Git history.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n## Viewing History\n\nGit stores every commit in your project's history.\n\nTo view the history:\n\n```bash\ngit log\n```\n\nThis shows:\n\n- commit IDs\n- author\n- date\n- commit messages\n\nExample: `git log` will display something like this:\n\n```bash\ncommit f157ead349e0dac2c244e2d3158169c9706dbb06 (HEAD -\u003e main)\nAuthor: Shafayetul Huda Sadi \u003cshafayet.sadi@gmail.com\u003e\nDate:   Thu Jun 25 10:50:54 2026 +0600\n\n    Add assignment todo\n\ncommit d0680cc7f5ae7590c69d7bdcdfb05bcd502c85f4\nAuthor: Shafayetul Huda Sadi \u003cshafayet.sadi@gmail.com\u003e\nDate:   Thu Jun 25 10:43:55 2026 +0600\n\n    Create initial todo list\n(END)\n```\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n- A shorter version\n\n```bash\ngit log --oneline\n```\n\n```bash\nf157ead (HEAD -\u003e main) Add assignment todo\nd0680cc Create initial todo list\n```\n\n- Each line represents a snapshot in your project's history.\n\n📌 If Git opens the log in a pager, press `q` to exit.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n## Understanding the Commands\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n### git status\n\n- Shows the current state of your repository.\n- Use it whenever you are unsure what Git is doing.\n\n📌 While learning Git, `git status` is your best friend.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n### git diff\n\n- Shows the differences between your working directory and the staging area.\n\n```bash\ngit diff\n```\n\n- Use it to review your changes before staging them.\n\n### git add\n\n- Moves changes from the **working directory** to the **staging area**.\n\n  ```bash\n  git add todo.txt\n  ```\n\n- Think of it as selecting what you want to save next.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n### git commit\n\n- Creates a snapshot from everything currently staged.\n\n```bash\ngit commit -m \"Add assignment todo\"\n```\n\n- Think of a commit as pressing **Save Game** in a video game.\n\n- If you never save, Git cannot take you back later.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n### git log\n\n- Shows the history of commits.\n\n```bash\ngit log --oneline\n```\n\n- This lets you see how your project evolved over time.\n\n\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\u003cbr\u003e\n\n## Important Reminder\n\nGit does not automatically create history.\n\n```text\nEdit File\n    ↓\nSave File\n    ↓\nStill only on your computer\n    ↓\ngit commit\n    ↓\nSaved in Git history\n```\n\n\u003e If you never commit your work, Git has nothing to restore later.\n","slug":"basic-git-workflow","title":"Basic Git Workflow","section":"Introduction to Git","icon":"git-alt","iconFamily":"fa-brands","filePath":"/home/runner/work/ms-git-and-github/ms-git-and-github/lessons/01-intro/F-basic-git-workflow.md","nextSlug":"/lessons/github/intro-to-github","prevSlug":"/lessons/intro/init-repo"}},"__N_SSG":true},"page":"/lessons/[section]/[slug]","query":{"section":"intro","slug":"basic-git-workflow"},"buildId":"ovwA_t101dLhWVPpkXD2D","assetPrefix":"/ms-git-and-github","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

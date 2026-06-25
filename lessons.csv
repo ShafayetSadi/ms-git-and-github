@@ -1,0 +1,15 @@
+order,sectionTitle,lessonTitle,slug,sectionIcon,filePath,description
+01A,Introduction to Git,Intro to Git,intro/intro-to-git,git-alt,/lessons/intro/intro-to-git,"Understand what Git is, why it exists, and how it helps developers work safely and collaboratively."
+01B,Introduction to Git,Version Control Concepts,intro/version-control,git-alt,/lessons/intro/version-control,"Learn what version control is, why it exists, and how it helps you work safely."
+01C,Introduction to Git,Shell Commands Refresher,intro/basic-shell-commands,git-alt,/lessons/intro/basic-shell-commands,Learn the essential terminal commands you'll use throughout this Git workshop.
+01D,Introduction to Git,Setting Up Git,intro/setup-git,git-alt,/lessons/intro/setup-git,Install Git and configure your identity so your work is properly tracked.
+01E,Introduction to Git,Initialize a Git Repository,intro/init-repo,git-alt,/lessons/intro/init-repo,Create your first Git repository and understand the basic Git workflow.
+01F,Introduction to Git,Basic Git Workflow,intro/basic-git-workflow,git-alt,/lessons/intro/basic-git-workflow,Learn the core Git workflow used in everyday development.
+02A,Introduction to GitHub,Introduction to GitHub,github/intro-to-github,square-github,/lessons/github/intro-to-github,"Understand what GitHub is, why developers use it, and how it works with Git."
+02B,Introduction to GitHub,Pushing a Local Repository to GitHub,github/push-to-github,square-github,/lessons/github/push-to-github,Learn how to connect a local Git repository to GitHub and upload your code.
+02C,Introduction to GitHub,Getting Code from GitHub,github/getting-code-from-github.md,square-github,/lessons/github/getting-code-from-github.md,Learn how to download a GitHub repository to your computer and keep it up to date.
+02D,Introduction to GitHub,Using HTTPS vs SSH with GitHub,github/https-vs-ssh,square-github,/lessons/github/https-vs-ssh,"Learn the difference between HTTPS and SSH, and set up SSH authentication with GitHub."
+03A,Project: Guessing Game,Building Our First Project with Git,project/guessing-game,code,/lessons/project/guessing-game,Create a simple guessing game and make your first meaningful project commit.
+03B,Project: Guessing Game,Saving Your Work With Commits,project/saving-your-project,code,/lessons/project/saving-your-project,"Learn how projects evolve through small, meaningful commits."
+03C,Project: Guessing Game,Solo Developer Workflow,project/solo-dev-workflow,code,/lessons/project/solo-dev-workflow,Learn the simple workflow that many developers follow every day when working on their own projects.
+03D,Project: Guessing Game,Homework: Build a CLI Todo App with Git,project/student-exercises,code,/lessons/project/student-exercises,Practice Git by building a Todo application through a series of meaningful commits.
